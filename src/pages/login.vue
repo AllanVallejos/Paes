@@ -1,11 +1,11 @@
 <template>
-   <div>
-        <PageTitle title="Login page" />
-        <PageDescription description="This page should only be accessible to guests." />
-        <div>
-            <h1>Login page</h1>
-            <p>This page should only be accessible to guests.</p>
-        </div>
+    <div>
+        <h1>login</h1>
+        <form @submit.prevent>
+            <input type="email" placeholder="Email" />
+            <input type="password" placeholder="Password"/>
+            <button type="submit">Login</button>
+        </form>
     </div>
 </template>
 
