@@ -1,3 +1,4 @@
+/* tiempo usado 1na hora 34 minutos */
 <template>
     <div style="display: flex; align-items: center;">
         <img src="./assets/tick_rojo.png" alt="tick_rojo_low_res" width="40" height="40">
