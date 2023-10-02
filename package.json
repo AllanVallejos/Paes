@@ -16,6 +16,5 @@
     "vue-router": "^4.2.5"
   },
   "dependencies": {
-    "@supabase/supabase-js": "^2.37.0"
   }
 }
