@@ -1,0 +1,110 @@
+<template>
+
+	<header class="text-white p-3" style="background-color:#c03a00e9; border: 1px solid black;">
+
+		<Title>Log in</Title>
+		<h1> ✓ Ensayo Paes</h1>
+
+	</header>
+
+	<br>
+
+	<body style="height: 100vh;">
+
+		<div style="display: grid; place-items: center; margin-top: 3%;">
+
+			<div class = "card text-bg-light" style = "border: 2px solid gray;  border-radius: 10px; overflow: hidden; width: 70%; height: 100%;">
+				
+				<div class = "card-body">
+
+					<form>
+
+						<div class = "mb-4">
+
+							<label for = "name" class = "form-label" style = "color: black ;margin-bottom: 12px;"> <h6> Nombre </h6> </label>
+							<input type = "name" class = "form-control" id = "name" required>
+
+						</div>
+
+							
+						<div class = "mb-4">
+
+							<label for = "email" class = "form-label" style = "color: black; margin-bottom: 12px;"> <h6> Correo Electrónico </h6> </label>
+							<input type = "email" class = "form-control" id = "email" required>
+
+						</div>
+
+						<div class = "mb-4">
+
+							<label for = "password" class = "form-label" style = "color: black; margin-bottom: 12px;"> <h6> Contraseña </h6> </label>
+							<input type = "password" class = "form-control" id = "password" required>
+
+						</div>
+
+						<div>
+							
+							<input class = "form-check-input" type = "checkbox" value = "" id = "flexCheckDefault">
+							<label class = "form-check-label" for = "flexCheckDefault" style = "margin-bottom: 14px; outline-color: #000;">Recuerdame</label>
+
+						</div>
+
+						<div class = "d-grid" style="place-items: center;">
+
+							<button type = "submit" class = "btn btn-outline-secondary" style="width: 60%;"> Iniciar Sesión </button>
+
+						</div>
+						
+					</form>
+
+				</div>
+
+			</div>
+
+		</div>
+		
+	</body>
+	
+	<footer class="text-white" style="text-align: center; position: absolute; bottom: 0; width: 100%; background-color: #c03a00e9; border: 1px solid black;">
+
+		<div class = "row">
+
+			<div>
+
+				<ul style = "padding: 0; font-size: 14px; text-align: center;">
+
+					<li style = "display: inline-block; padding-right: 0.5%;">
+
+						<a href = "#" style = "color: white ;"> Inicio </a>
+
+					</li>
+
+					<li style="display: inline-block; padding-right:  0.5%;">
+
+						<a href = "#" style = "color: white;"> Terminos </a>
+
+					</li>
+
+					<li style="display: inline-block; padding-right:  0.5%;">
+
+						<a href = "#" style = "color: white;"> Privacidad </a>
+
+					</li>
+
+					<li style="display: inline-block; padding-right:  0.5%;">
+
+						<a href = "#" style = "color: white;"> Sobre nosotros </a>
+
+					</li>
+
+					<br>
+					&copy; EnsayoPaes - 2023
+
+				</ul>
+
+			</div>
+
+		</div>
+
+	</footer>
+
+</template>
