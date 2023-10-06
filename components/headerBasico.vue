@@ -2,7 +2,7 @@
 
     <header style="width: 100%;">
 
-        <nav class="navbar navbar-expand-lg bg-light" style="border: 1px; border-color: black;">
+        <nav class="navbar navbar-expand-lg bg-light" style="border: 1px; border-color: black;padding-right: 2%;">
 
             <div class="container-fluid">
 
@@ -10,9 +10,9 @@
 
                 <div>
 
-                    <ul class="navbar-nav me-auto -mb-2 mb-lg-0">
+                    <ul class="navbar-nav me-auto -mb-2 mb-lg-0" >
 
-                        <li class="nav-item"><NuxtLink class="nav-link active" to="/home">Home</NuxtLink>  </li>
+                        <li class="nav-item"><NuxtLink class="nav-link active" to="/">Home</NuxtLink>  </li>
 
                         <li class="nav-item"><NuxtLink class="nav-link active" to="/foro">Foro</NuxtLink></li>
 
@@ -20,7 +20,7 @@
 
                         <li class="nav-item dropdown">
                             
-                            <a class="nav-link dropdown-toggle" href="/cuenta" role="button" data-bs-toggle="dropdown" aria-expanded="false">Cuenta</a>
+                            <a class="nav-link dropdown-toggle" href="/cuenta" role="button" data-bs-toggle="dropdown" aria-expanded="false" >Cuenta</a>
 
                             <ul class="dropdown-menu">
 
@@ -60,6 +60,15 @@
             
         ],
 
+        script:[
+            {
+                src:"	https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js",
+
+            },
+        ],
+
     });
+
+
 
 </script>

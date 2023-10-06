@@ -2,7 +2,8 @@
 
     <HeaderBasico></HeaderBasico>
 
-    <body>
+    <body style="">
+
         <h1>Home</h1>
 
     </body>

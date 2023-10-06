@@ -2,7 +2,12 @@
 
     <HeaderBasico></HeaderBasico>
 
-    <h1>Foro</h1>
+    <body style="">
+
+        <h1>Foro</h1>
+
+    </body>
+
 
     
     <FooterBasico></FooterBasico>
