@@ -2,9 +2,9 @@
 
     <header style="width: 100%;">
 
-        <nav class="navbar navbar-expand-lg bg-light" style="border: 1px; border-color: black;padding-right: 2%;">
+        <nav class="navbar navbar-expand-lg" style="border: 1px; border-color: black; padding-right: 2%; background-color: #c03a00e9;">
 
-            <div class="container-fluid">
+            <div class="container-fluid" style="color">
 
                 <a class="navbar-brand"><h1>✓ Ensayo Paes</h1></a>
 
@@ -19,7 +19,7 @@
                         <li class="nav-item"><NuxtLink class="nav-link active" to="/ensayo">Ensayos</NuxtLink></li>
 
                         <li class="nav-item dropdown">
-                            
+
                             <a class="nav-link dropdown-toggle" href="/cuenta" role="button" data-bs-toggle="dropdown" aria-expanded="false" >Cuenta</a>
 
                             <ul class="dropdown-menu">
@@ -51,6 +51,7 @@
     useHead({
 
         link:[
+
             {
                 rel:"stylesheet",
                 href:"https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css",
@@ -61,10 +62,11 @@
         ],
 
         script:[
+
             {
                 src:"	https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js",
-
             },
+            
         ],
 
     });
