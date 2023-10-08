@@ -41,10 +41,10 @@
 <style>
 body {
 font-family: Arial, sans-serif;
-background-image: url('public/fondo6.jpg'); /* Reemplaza 'ruta_de_la_imagen.jpg' con la ruta de tu imagen de fondo */
+background-image: url('public/fondo6.jpg'); 
 background-size: cover; 
 background-repeat: no-repeat; 
-background-attachment: fixed; /* Fija la imagen de fondo para que no se desplace con el contenido */
+background-attachment: fixed; 
 background-color: #f4f4f4;
 margin-right:80px;
 
