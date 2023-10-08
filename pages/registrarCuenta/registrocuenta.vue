@@ -41,7 +41,7 @@
 <style>
 body {
 font-family: Arial, sans-serif;
-background-image: url('public/fondo6.jpg'); 
+background-image: url('/fondo6.jpg'); 
 background-size: cover; 
 background-repeat: no-repeat; 
 background-attachment: fixed; 
