@@ -28,7 +28,6 @@
   
   <script>
   import { ref } from 'vue';
-  import { supabase } from '../src/supabase/supabase';
   
   export default {
     setup() {
