@@ -7,7 +7,7 @@ import mongoose from 'mongoose';
 const app = express();
 
 
-const URL='mongodb+srv://katitavpkr:nGbjolAAycoGoSMt@cluster0.8fw7hac.mongodb.net/?retryWrites=true&w=majority';
+const URL='mongodb+srv://zumbaleprimo23:eptHrvruOwgTiGDF@paes.tb7y3ti.mongodb.net/?retryWrites=true&w=majority&appName=AtlasApp';
 
 const options = {useNewUrlParser: true};
 // Or using promises
