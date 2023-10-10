@@ -1,8 +1,8 @@
 <template>
 
-    <footer class="text-white" style="text-align: center; position: relative; bottom: 0; width: 100%; background-color: #c03a00e9; border: 1px solid black;">
+    <footer class="text-white" style="text-align: center; position: relative; bottom: 0; width: 100%; background-color: #c03a00e9; border: 1px solid black;padding-right: 0%;">
 
-        <div class = "row">
+        <div class = "row" style="padding-right: 0%;">
 
             <div>
 
@@ -44,3 +44,9 @@
     </footer>
 
 </template>
+
+<style>
+    div[class="row"] {
+        --bs-gutter-x: 0rem;
+    }
+</style>

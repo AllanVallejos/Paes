@@ -20,15 +20,15 @@
 
                         <li class="nav-item dropdown">
 
-                            <a class="nav-link dropdown-toggle" href="/cuenta" role="button" data-bs-toggle="dropdown" aria-expanded="false" >Cuenta</a>
+                            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false" >Cuenta</a>
 
                             <ul class="dropdown-menu">
 
-                                <li><NuxtLink class="dropdown-item" to="/cuenta/editarCuenta">Editar Cuenta</NuxtLink> </li>
+                                <li><NuxtLink class="dropdown-item" to="/actualizarPerfil">Editar Cuenta</NuxtLink> </li>
 
-                                <li><NuxtLink class="dropdown-item" to="/cuenta/">log in</NuxtLink></li>
+                                <li><NuxtLink class="dropdown-item" to="/login">Iniciar Sesion</NuxtLink></li>
 
-                                <li><NuxtLink class="dropdown-item" to="/cuenta/">sign in</NuxtLink></li>
+                                <li><NuxtLink class="dropdown-item" to="/registrocuenta">Registrar Cuenta</NuxtLink></li>
 
                             </ul>
 
@@ -47,30 +47,5 @@
 </template>
 
 <script setup>
-
-    useHead({
-
-        link:[
-
-            {
-                rel:"stylesheet",
-                href:"https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css",
-                integrity:"sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN",
-                crossorigin:"anonymous",
-            },
-            
-        ],
-
-        script:[
-
-            {
-                src:"	https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js",
-            },
-            
-        ],
-
-    });
-
-
 
 </script>
