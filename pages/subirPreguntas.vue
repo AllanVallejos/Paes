@@ -1,5 +1,8 @@
 <template>
-    
+    <div style="background-color: #fb8500;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;">
     <div class="SubirPregunta">
       <h1>Banco de preguntas PAES</h1>
       <div class="relleno">
@@ -64,6 +67,7 @@
         {{ confirmationMessage }}
       </p>
     </div>
+    </div>
   </template>
   
 <script>
@@ -95,12 +99,6 @@
 </script>
   
 <style>
-  body {
-    background-color: #fb8500;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-  }
   .SubirPregunta {
     max-width: 500px;
     margin: 0 auto;
