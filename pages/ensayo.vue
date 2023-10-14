@@ -8,37 +8,51 @@
 
             <div class="container text-center">
 
-                <div class="row align-items-center">
+                <div class="row align-items-center" style="width: 100%;">
 
                     <div class="col">
 
                         <div class="card text-bg-light mb-4" style="min-width: 80%;">
 
-                            <div class="card-header" style="color: #c03a00e9;"> <h3>Matematicas M1 (Obligatoria)</h3></div>
+                            <div class="card-header" style="color: #c03a00e9;"> <h3>Matematicas</h3></div>
 
                             <div class="card-body">
 
-                                <p class="card-text">Esta prueba va a poner a prueba los contenidos que se han visto hasta 2do medio.</p>
+                                <p class="card-text">Estas pruebas están diseñadas para evaluar la comprensión y aplicación de conceptos matemáticos por parte de los participantes, está dividida en dos; 
+                                    La primera es la M1 que evalua conceptos vistos hasta 2do medio, mientras que la M2 evalua conocimiento de toda la enseñanza media. </p>
 
                                 <ul class="list-group list-item" style="text-align: left;">
 
-                                    <li class="list-group-item">
+                                    <ul class="list-group list-item" style="text-align: left;">
 
-                                        <p>Tipo de prueba:</p>
+                                        <li class="list-group-item">
 
-                                    </li>
+                                            <select class="form-select" aria-label="Default select example">
+                                                <option selected>Tipo de Prueba</option>
+                                                <option value="tema1">M1 Obligatoria</option>
+                                                <option value="tema2">M2 Electiva</option>
+                                            </select>
 
-                                    <li class="list-group-item">
+                                        </li>
 
-                                        <p>Numero de preguntas:</p>
+                                        <li class="list-group-item">
 
-                                    </li>
+                                            <select class="form-select" aria-label="Default select example">
+                                                <option selected>Numero de preguntas</option>
+                                                <option value="1">25</option>
+                                                <option value="2">45</option>
+                                                <option value="3">65</option>
+                                            </select>
+
+                                        </li>
+
+                                    </ul>
 
                                 </ul>
 
                                 <div class="card-footer">
 
-                                    <a href="#" class="btn btn-secondary">Realizar ensayo</a>
+                                    <a href="#" class="btn btn-dark">Realizar ensayo</a>
 
                                 </div>
 
@@ -52,23 +66,24 @@
 
                         <div class="card text-bg-light mb-4" style="min-width: 80%;">
 
-                            <div class="card-header" style="color: #c03a00e9;"> <h3>Comprension lectora (Obligatoria)</h3></div>
+                            <div class="card-header" style="color: #c03a00e9;"> <h3>Comprension lectora</h3></div>
 
                             <div class="card-body">
 
-                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                <p class="card-text" style="padding-bottom: 20%;">En esta prueba implica la evaluación de lecturas y conocimiento general de lenguaje, y busca medir la comprensión lectora y
+                                     las habilidades lingüísticas de los participantes. Estas pruebas pueden incluir la lectura y análisis de textos, preguntas de comprensión, y 
+                                     la aplicación de reglas gramaticales y ortográficas.</p>
 
                                 <ul class="list-group list-item" style="text-align: left;">
 
                                     <li class="list-group-item">
 
-                                        <p>Tipo de prueba:</p>
-
-                                    </li>
-
-                                    <li class="list-group-item">
-
-                                        <p>Numero de preguntas:</p>
+                                        <select class="form-select" aria-label="Default select example">
+                                            <option selected>Numero de preguntas</option>
+                                            <option value="1">25</option>
+                                            <option value="2">45</option>
+                                            <option value="3">65</option>
+                                        </select>
 
                                     </li>
 
@@ -76,7 +91,7 @@
 
                                 <div class="card-footer">
 
-                                    <a href="#" class="btn btn-secondary">Realizar ensayo</a>
+                                    <a href="#" class="btn btn-dark" >Realizar ensayo</a>
 
                                 </div>
 
@@ -94,19 +109,32 @@
 
                             <div class="card-body">
 
-                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                <p class="card-text"> Una prueba de ciencias naturales abarca una variedad de subtemas, entre los cuales los participantes pueden escoger, 
+                                    incluyendo biología, física y química. Estas pruebas están diseñadas para evaluar el conocimiento y comprensión de conceptos fundamentales 
+                                    en el campo de las ciencias naturales</p>
 
                                 <ul class="list-group list-item" style="text-align: left;">
 
                                     <li class="list-group-item">
 
-                                        <p>Tipo de prueba:</p>
+                                        <select class="form-select" aria-label="Default select example">
+                                            <option selected>Subtema</option>
+                                            <option value="tema1">Biologia</option>
+                                            <option value="tema2">Fisica</option>
+                                            <option value="tema3">Quimica</option>
+                                        </select>
 
                                     </li>
 
                                     <li class="list-group-item">
 
-                                        <p>Numero de preguntas:</p>
+                                        <select class="form-select" aria-label="Default select example">
+                                            <option selected>Numero de preguntas</option>
+                                            <option value="1">25</option>
+                                            <option value="2">45</option>
+                                            <option value="3">65</option>
+                                            <option value="4">80</option> 
+                                        </select>
 
                                     </li>
 
@@ -114,7 +142,7 @@
 
                                 <div class="card-footer">
 
-                                    <a href="#" class="btn btn-secondary">Realizar ensayo</a>
+                                    <a href="#" class="btn btn-dark">Realizar ensayo</a>
 
                                 </div>
 
@@ -124,77 +152,35 @@
 
                     </div>
 
-                    <div class="row justify-content-md-center">
-                        
-                        <div class="col col-lg-5">
+                    <div class="col">
 
-                            <div class="card text-bg-light mb-4" style="min-width: 60%;">
+                        <div class="card text-bg-light mb-4" style="min-width: 60%;">
 
-                                <div class="card-header" style="color: #c03a00e9;"> <h3>Matematicas M2 (Electiva)</h3></div>
+                            <div class="card-header" style="color: #c03a00e9;"> <h3>Historia y Ciencias Sociales</h3></div>
 
-                                <div class="card-body">
+                            <div class="card-body">
 
-                                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                <p class="card-text" style="padding-bottom: 17.3%;">En esta evaluacion se busca identificar y comprender momentos significativos en la historia del país. Esta prueba busca medir el conocimiento de eventos, 
+                                    fechas y figuras históricas que han tenido un impacto en la evolución de Chile a lo largo del tiempo. </p>
 
-                                    <ul class="list-group list-item" style="text-align: left;">
+                                <ul class="list-group list-item" style="text-align: left;">
 
-                                        <li class="list-group-item">
+                                    <li class="list-group-item">
 
-                                            <p>Tipo de prueba:</p>
+                                        <select class="form-select" aria-label="Default select example">
+                                            <option selected>Numero de preguntas</option>
+                                            <option value="1">25</option>
+                                            <option value="2">45</option>
+                                            <option value="3">65</option>
+                                        </select>
 
-                                        </li>
+                                    </li>
 
-                                        <li class="list-group-item">
+                                </ul>
 
-                                            <p>Numero de preguntas:</p>
+                                <div class="card-footer">
 
-                                        </li>
-
-                                    </ul>
-
-                                    <div class="card-footer">
-
-                                        <a href="#" class="btn btn-secondary">Realizar ensayo</a>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <div class="col col-lg-5">
-
-                            <div class="card text-bg-light mb-4" style="min-width: 60%;">
-
-                                <div class="card-header" style="color: #c03a00e9;"> <h3>Historia y Ciencias Sociales</h3></div>
-
-                                <div class="card-body">
-
-                                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-
-                                    <ul class="list-group list-item" style="text-align: left;">
-
-                                        <li class="list-group-item">
-
-                                            <p>Tipo de prueba:</p>
-
-                                        </li>
-
-                                        <li class="list-group-item">
-
-                                            <p>Numero de preguntas:</p>
-
-                                        </li>
-
-                                    </ul>
-
-                                    <div class="card-footer">
-
-                                        <a href="#" class="btn btn-secondary">Realizar ensayo</a>
-
-                                    </div>
+                                    <a href="#" class="btn btn-dark">Realizar ensayo</a>
 
                                 </div>
 

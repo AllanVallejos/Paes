@@ -1,7 +1,7 @@
 <template>
 
-	<body style="min-height: 100vh; position: relative; padding-bottom: 5rem;">
-        
+	<body style="min-height: 86vh; position: relative; padding-bottom: 5rem;">
+
 		<div style="display: grid; place-items: center; margin-top: 3%;">
 
             <div class = "card" style = "border: 2px solid gray;  border-radius: 10px; overflow: hidden; width: 70%; height: 100%; color:#c03a00e9; ">
