@@ -18,6 +18,7 @@
   </template>
   
   <script>
+  import API from '@/api';
   export default {
     data() {
       return {
@@ -39,6 +40,15 @@
           alert("faltan preguntas por responder");
         }
       },
+      async cargarPregunta(){
+        try{
+            const respuesta= await API.getPregunta(id);
+            console.log(respuesta);
+        }catch (error){
+            console.error(error);
+        }
+        }
+
     },
   };
   </script>

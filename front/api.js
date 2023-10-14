@@ -12,6 +12,19 @@ export default class API{
             return error.response.data
         }
     }
+
+    async getPregunta(id) {
+        try {
+          const response = await fetch(`/api/getpregunta/${id}`); // Suponiendo que tu ruta sea /api/getpregunta/:id
+          if (!response.ok) {
+            throw new Error('Error al obtener la pregunta');
+          }
+          return await response.json();
+        } catch (error) {
+          throw error;
+        }
+      }
+      
     static async addusuario(data){
         try {
             const res = await axios.post(url+"addusuario",data)

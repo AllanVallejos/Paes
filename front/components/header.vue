@@ -16,7 +16,7 @@
 
                         <li class="nav-item"><NuxtLink class="nav-link active" to="/foro">Foro</NuxtLink></li>
 
-                        <li class="nav-item"><NuxtLink class="nav-link active" to="/ensayo">Ensayos</NuxtLink></li>
+                        <li class="nav-item"><NuxtLink class="nav-link active" to="/prueballamarensayo">Ensayos</NuxtLink></li>
 
                         <li class="nav-item"><NuxtLink class="nav-link active" to="/subirPreguntas">Subir Pregunta</NuxtLink></li>
 
