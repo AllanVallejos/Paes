@@ -4,13 +4,13 @@
 
 		<div style="display: grid; place-items: center; margin-top: 3%;">
 
-            <div class = "card" style = "border: 2px solid gray;  border-radius: 10px; overflow: hidden; width: 70%; height: 100%; color:#c03a00e9; ">
+            <div class = "card text-bg-light" style = "border: 2px solid gray;  border-radius: 10px; overflow: hidden; width: 70%; height: 100%; ">
 
 				<div class = "card-body">
 
                     <div class="card-header">
 
-                        <h1 class="card-tittle" style="text-align: center;"><u>Iniciar sesion</u></h1>
+                        <h1 class="card-tittle" style="text-align: center;color:#c03a00e9;"><u>Iniciar sesion</u></h1>
 
                     </div>
 

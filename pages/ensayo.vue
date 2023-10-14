@@ -19,7 +19,7 @@
                             <div class="card-body">
 
                                 <p class="card-text">Estas pruebas están diseñadas para evaluar la comprensión y aplicación de conceptos matemáticos por parte de los participantes, está dividida en dos; 
-                                    La primera es la M1 que evalua conceptos vistos hasta 2do medio, mientras que la M2 evalua conocimiento de toda la enseñanza media. </p>
+                                    La primera es la M1 que evalua conceptos vistos hasta 2do medio, mientras que la M2 evalua conocimiento de toda la enseñanza media.</p>
 
                                 <ul class="list-group list-item" style="text-align: left;">
 
@@ -52,7 +52,7 @@
 
                                 <div class="card-footer">
 
-                                    <a href="#" class="btn btn-dark">Realizar ensayo</a>
+                                    <a href="#" class="btn btn-dark"><nuxt-link class="nav-link active" to="/insideensayo">Realizar ensayo</nuxt-link></a>
 
                                 </div>
 
@@ -91,7 +91,7 @@
 
                                 <div class="card-footer">
 
-                                    <a href="#" class="btn btn-dark" >Realizar ensayo</a>
+                                    <a href="#" class="btn btn-dark"><nuxt-link class="nav-link active" to="/insideensayo">Realizar ensayo</nuxt-link></a>
 
                                 </div>
 
@@ -142,7 +142,7 @@
 
                                 <div class="card-footer">
 
-                                    <a href="#" class="btn btn-dark">Realizar ensayo</a>
+                                    <a href="#" class="btn btn-dark"><nuxt-link class="nav-link active" to="/insideensayo">Realizar ensayo</nuxt-link></a>
 
                                 </div>
 
@@ -180,7 +180,7 @@
 
                                 <div class="card-footer">
 
-                                    <a href="#" class="btn btn-dark">Realizar ensayo</a>
+                                    <a href="#" class="btn btn-dark"><nuxt-link class="nav-link active" to="/insideensayo">Realizar ensayo</nuxt-link></a>
 
                                 </div>
 
