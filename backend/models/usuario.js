@@ -2,19 +2,13 @@ import mongoose from 'mongoose';
 const Schema = mongoose.Schema;
 
 const usuarioSchema = new Schema({
-    nombre: String,
-    correo: {type:String,unique:true},
-    contrasena:String,
-    actividad:String,
-    imagenperfil:String,
-    eschofer: Boolean,
-    vehiculo:{
-        imagen:String,
-        patente:String,
-        marca:String,
-        modelo:String
-    },
-    viajes: [{ type: Schema.Types.ObjectId, ref: 'Viaje' }],
+    nombreUsuario: String,
+    apellidoUsuario: String, 
+    correo: String,
+    contraseña: String,
+    carrera: String,
+    universidad: String, 
+   
 
 },{ versionKey: false }
 );

@@ -7,12 +7,20 @@ export default class API{
         try {
             const res = await axios.post(url+"addpregunta",data)
 
-
-            
             return res.data
         } catch (error) {
             return error.response.data
         }
     }
+    static async addusuario(data){
+        try {
+            const res = await axios.post(url+"addusuario",data)
+
+            return res.data
+        } catch (error) {
+            return error.response.data
+        }
+    }
+    
 
 }
