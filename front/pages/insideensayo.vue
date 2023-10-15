@@ -1,5 +1,5 @@
 <template>
-    <div style="min-height: 86vh; position: relative; padding-bottom: 5rem;">
+    <div>
       <!-- Aquí debería ir un temporizador, hay que ver algun framework que lo tenga -->
       <h2>Alternativas</h2>
       <div v-for="(index, questionIndex) in n" :key="questionIndex">
