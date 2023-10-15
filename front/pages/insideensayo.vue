@@ -23,8 +23,8 @@
     data() {
       return {
         respuestaUsuario: '',
-        n: 4, // Pongan aquí la cantidad de preguntas
-        respuestas: Array(4).fill(''),//la cantidad de respuestas totales debe ser igual a la cantidad de preguntas totales
+        n: 25, // Pongan aquí la cantidad de preguntas
+        respuestas: Array(25).fill(''),//la cantidad de respuestas totales debe ser igual a la cantidad de preguntas totales
         alternativas: ['Alternativa 1', 'Alternativa 2', 'Alternativa 3', 'Alternativa 4'],
       };
     },
