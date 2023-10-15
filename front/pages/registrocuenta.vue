@@ -1,5 +1,5 @@
 <template>
-    <body style="font-family: Arial, sans-serif;
+    <div style="font-family: Arial, sans-serif;
         background-image: url('/fondo6.jpg'); 
         background-size: cover; 
         background-repeat: no-repeat; 
@@ -32,6 +32,10 @@
         <label for="correo" style="display: block;  margin-bottom: 10px;">Correo Electrónico:</label>
         <input v-model="correo" type="email" id="email" name="email" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px;"/>
 
+        <label for="password" style="display: block;  margin-bottom: 10px;">Contraseña:</label>
+        <input v-model="password" type="password" id="password" name="password" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px;"/>
+
+        
         <label for="universidad" style="display: block;  margin-bottom: 10px;">Universidad de preferencia:</label>
         <select v-model="universidad" id="universidad" name="universidad" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px;">
           <option value="uni1">Universidad de Talca</option>
@@ -50,7 +54,7 @@
         </button>
        
       </form>
-    </body>
+    </div>
 
 
 </template>
@@ -65,6 +69,7 @@
         nombreUsuario: "", 
         apellidoUsuario: "",
         correo: "", 
+        password: "",
         carrera: "", 
         universidad: "" 
         };
@@ -81,6 +86,7 @@
             "nombreUsuario":this.nombreUsuario,
             "apellidoUsuario": this.apellidoUsuario,
             "correo": this.correo,
+            "contraseña": this.password,
             "universidad": this.universidad,
             "carrera":this.carrera,
             
@@ -94,6 +100,9 @@
 </script>
 
 <style>
+
+    
+
     button[type="submit"] {
         background-color: #000000;
         color: #fff;
