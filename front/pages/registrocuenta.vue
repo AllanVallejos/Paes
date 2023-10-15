@@ -22,6 +22,7 @@
         font-size: 30px;
         color: #000000;">
         Registro de cuenta</h2>
+<<<<<<< HEAD
         <label for="nombre" style="display: block;  margin-bottom: 10px;">Nombre:</label>
         <input type="text" id="nombre" name="nombre" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px;"/>
 
@@ -33,25 +34,91 @@
 
         <label for="universidad" style="display: block;  margin-bottom: 10px;">Universidad de preferencia:</label>
         <select id="universidad" name="universidad" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px;">
+=======
+
+        <label for="nombre" style="display: block;  margin-bottom: 10px;">Nombre:</label>
+        <input v-model="nombreUsuario" type="text" id="nombre" name="nombre" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px;"/>
+
+        <label for="apellido" style="display: block;  margin-bottom: 10px;">Apellido:</label>
+        <input v-model="apellidoUsuario"  type="text" id="apellido" name="apellido" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px;"/>
+
+        <label for="correo" style="display: block;  margin-bottom: 10px;">Correo Electrónico:</label>
+        <input v-model="correo" type="email" id="email" name="email" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px;"/>
+
+        <label for="universidad" style="display: block;  margin-bottom: 10px;">Universidad de preferencia:</label>
+        <select v-model="universidad" id="universidad" name="universidad" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px;">
+>>>>>>> 0bd06d9830e17c645947d89e596f83c208afd7ac
           <option value="uni1">Universidad de Talca</option>
           <option value="uni2">Universidad de Chile</option>
           <option value="uni3">Universidad Diego Portales</option>
         </select>
 
         <label for="carrera" style="display: block;  margin-bottom: 10px;">Carrera:</label>
+<<<<<<< HEAD
         <select id="carrera" name="carrera" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px;">
+=======
+        <select v-model="carrera" id="carrera" name="carrera" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px;">
+>>>>>>> 0bd06d9830e17c645947d89e596f83c208afd7ac
           <option value="carrera1">Carrera 1</option>
           <option value="carrera2">Carrera 2</option>
           <option value="carrera3">Carrera 3</option>
         </select>
+<<<<<<< HEAD
 
         <button type="submit">Registrar Cuenta</button>
+=======
+        <button @click="crear" type="submit">
+        Crear cuenta
+        </button>
+       
+>>>>>>> 0bd06d9830e17c645947d89e596f83c208afd7ac
       </form>
     </body>
 
 
 </template>
 
+<<<<<<< HEAD
+=======
+<script>
+    
+    import API from '@/api';
+    export default {
+    
+    data() {
+        return {
+        nombreUsuario: "", 
+        apellidoUsuario: "",
+        correo: "", 
+        carrera: "", 
+        universidad: "" 
+        };
+    },
+    methods: {
+ 
+        crear() {
+        this.confirmationMessage = "Cuenta creada";
+        this.crearUsuario()
+        },
+        async crearUsuario(){
+        const respuesta= await API.addusuario(
+            {
+            "nombreUsuario":this.nombreUsuario,
+            "apellidoUsuario": this.apellidoUsuario,
+            "correo": this.correo,
+            "universidad": this.universidad,
+            "carrera":this.carrera,
+            
+            }
+        )
+
+        },
+  }
+
+};
+</script>
+
+>>>>>>> 0bd06d9830e17c645947d89e596f83c208afd7ac
 <style>
     button[type="submit"] {
         background-color: #000000;
