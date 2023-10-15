@@ -64,39 +64,39 @@
     import API from '@/api';
     export default {
     
-    data() {
-        return {
-        nombreUsuario: "", 
-        apellidoUsuario: "",
-        correo: "", 
-        password: "",
-        carrera: "", 
-        universidad: "" 
-        };
-    },
-    methods: {
- 
-        crear() {
-        this.confirmationMessage = "Cuenta creada";
-        this.crearUsuario()
+        data() {
+            return {
+            nombreUsuario: "", 
+            apellidoUsuario: "",
+            correo: "", 
+            password: "",
+            carrera: "", 
+            universidad: "" 
+            };
         },
-        async crearUsuario(){
-        const respuesta= await API.addusuario(
-            {
-            "nombreUsuario":this.nombreUsuario,
-            "apellidoUsuario": this.apellidoUsuario,
-            "correo": this.correo,
-            "contraseña": this.password,
-            "universidad": this.universidad,
-            "carrera":this.carrera,
-            
-            }
-        )
+        methods: {
+    
+            crear() {
+            this.confirmationMessage = "Cuenta creada";
+            this.crearUsuario()
+            },
+            async crearUsuario(){
+            const respuesta= await API.addusuario(
+                {
+                "nombreUsuario":this.nombreUsuario,
+                "apellidoUsuario": this.apellidoUsuario,
+                "correo": this.correo,
+                "contraseña": this.password,
+                "universidad": this.universidad,
+                "carrera":this.carrera,
+                
+                }
+            )
 
-        },
-  }
+            },
+    }
 
-};
+    };
 </script>
 
 <style>
