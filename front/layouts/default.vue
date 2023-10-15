@@ -1,7 +1,7 @@
 import { NavbarHeaderBasico } from '../.nuxt/components';
 <template>
   <div>
-    <NavbarHeaderBasico />
+    <HeaderBasico />
     <main>
         <slot />
     </main>
@@ -27,4 +27,3 @@ import { NavbarHeaderBasico } from '../.nuxt/components';
         ],
     });
 </script>
-

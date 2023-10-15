@@ -1,5 +1,4 @@
 <template>
-
     <body style="min-height: 86vh; position: relative; padding-bottom: 5rem;">
 
         <div style="display: grid; place-items: center; margin-top: 3%;">
