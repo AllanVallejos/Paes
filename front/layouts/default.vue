@@ -1,11 +1,11 @@
 import { NavbarHeaderBasico } from '../.nuxt/components';
 <template>
   <div>
-    <NavbarHeaderBasico />
+    <headerr />
     <main>
         <slot />
     </main>
-    <footerBasico />
+    <footerr />
     </div>
 </template>
 
