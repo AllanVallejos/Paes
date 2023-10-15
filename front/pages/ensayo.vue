@@ -12,7 +12,7 @@
 
                     <div class="col">
 
-                        <div class="card text-bg-light mb-4" style="min-width: 80%;">
+                        <div class="card text-bg-light mb-4"  style="min-width: 80%; min-height: 70%; max-width: 90%; max-height: 70%;">
 
                             <div class="card-header" style="color: #c03a00e9;"> <h3>Matematicas</h3></div>
 
@@ -37,13 +37,12 @@
 
                                         <li class="list-group-item">
 
-                                            <select class="form-select" aria-label="Default select example">
+                                            <select class="form-select" v-model="numPaginas" aria-label="Default select example">
                                                 <option selected>Numero de preguntas</option>
-                                                <option value="1">25</option>
-                                                <option value="2">45</option>
-                                                <option value="3">65</option>
+                                                <option value= 25>25</option>
+                                                <option value= 45>45</option>
+                                                <option value= 65>65</option>
                                             </select>
-
                                         </li>
 
                                     </ul>
@@ -52,7 +51,7 @@
 
                                 <div class="card-footer">
 
-                                    <a href="#" class="btn btn-dark"><nuxt-link class="nav-link active" to="/insideensayo">Realizar ensayo</nuxt-link></a>
+                                    <a href="#" class="btn btn-dark" @click="crearEnsayo">Realizar ensayo</a>
 
                                 </div>
 
@@ -64,13 +63,13 @@
 
                     <div class="col">
 
-                        <div class="card text-bg-light mb-4" style="min-width: 80%;">
+                        <div class="card text-bg-light mb-4"  style="min-width: 80%; min-height: 80%; max-width: 90%; max-height: 80%;">
 
                             <div class="card-header" style="color: #c03a00e9;"> <h3>Comprension lectora</h3></div>
 
                             <div class="card-body">
 
-                                <p class="card-text" style="padding-bottom: 20%;">En esta prueba implica la evaluación de lecturas y conocimiento general de lenguaje, y busca medir la comprensión lectora y
+                                <p class="card-text">En esta prueba implica la evaluación de lecturas y conocimiento general de lenguaje, y busca medir la comprensión lectora y
                                      las habilidades lingüísticas de los participantes. Estas pruebas pueden incluir la lectura y análisis de textos, preguntas de comprensión, y 
                                      la aplicación de reglas gramaticales y ortográficas.</p>
 
@@ -78,11 +77,11 @@
 
                                     <li class="list-group-item">
 
-                                        <select class="form-select" aria-label="Default select example">
-                                            <option selected>Numero de preguntas</option>
-                                            <option value="1">25</option>
-                                            <option value="2">45</option>
-                                            <option value="3">65</option>
+                                        <select class="form-select" v-model="numPaginas" aria-label="Default select example">
+                                                <option selected>Numero de preguntas</option>
+                                                <option value= 25>25</option>
+                                                <option value= 45>45</option>
+                                                <option value= 65>65</option>
                                         </select>
 
                                     </li>
@@ -91,7 +90,7 @@
 
                                 <div class="card-footer">
 
-                                    <a href="#" class="btn btn-dark"><nuxt-link class="nav-link active" to="/insideensayo">Realizar ensayo</nuxt-link></a>
+                                    <a href="#" class="btn btn-dark" @click="crearEnsayo">Realizar ensayo</a>
 
                                 </div>
 
@@ -103,7 +102,7 @@
 
                     <div class="col">
 
-                        <div class="card text-bg-light mb-4" style="min-width: 80%;">
+                        <div class="card text-bg-light mb-4" style="min-width: 80%; min-height: 70%; max-width: 90%; max-height: 70%;">
 
                             <div class="card-header" style="color: #c03a00e9;"> <h3>Ciencias</h3></div>
 
@@ -128,12 +127,12 @@
 
                                     <li class="list-group-item">
 
-                                        <select class="form-select" aria-label="Default select example">
+                                        <select class="form-select" v-model="numPaginas" aria-label="Default select example">
                                             <option selected>Numero de preguntas</option>
-                                            <option value="1">25</option>
-                                            <option value="2">45</option>
-                                            <option value="3">65</option>
-                                            <option value="4">80</option> 
+                                            <option value= 25>25</option>
+                                            <option value= 45>45</option>
+                                            <option value= 65>65</option>
+                                            <option value= 80>80</option>
                                         </select>
 
                                     </li>
@@ -142,7 +141,7 @@
 
                                 <div class="card-footer">
 
-                                    <a href="#" class="btn btn-dark"><nuxt-link class="nav-link active" to="/insideensayo">Realizar ensayo</nuxt-link></a>
+                                    <a href="#" class="btn btn-dark" @click="crearEnsayo">Realizar ensayo</a>
 
                                 </div>
 
@@ -154,24 +153,24 @@
 
                     <div class="col">
 
-                        <div class="card text-bg-light mb-4" style="min-width: 60%;">
+                        <div class="card text-bg-light mb-4" style="min-width: 80%; min-height: 70%; max-width: 90%; max-height: 70%;">
 
                             <div class="card-header" style="color: #c03a00e9;"> <h3>Historia y Ciencias Sociales</h3></div>
 
                             <div class="card-body">
 
-                                <p class="card-text" style="padding-bottom: 17.3%;">En esta evaluacion se busca identificar y comprender momentos significativos en la historia del país. Esta prueba busca medir el conocimiento de eventos, 
+                                <p class="card-text" >En esta evaluacion se busca identificar y comprender momentos significativos en la historia del país. Esta prueba busca medir el conocimiento de eventos, 
                                     fechas y figuras históricas que han tenido un impacto en la evolución de Chile a lo largo del tiempo. </p>
 
                                 <ul class="list-group list-item" style="text-align: left;">
 
                                     <li class="list-group-item">
 
-                                        <select class="form-select" aria-label="Default select example">
+                                        <select class="form-select" v-model="numPaginas" aria-label="Default select example">
                                             <option selected>Numero de preguntas</option>
-                                            <option value="1">25</option>
-                                            <option value="2">45</option>
-                                            <option value="3">65</option>
+                                            <option value= 25>25</option>
+                                            <option value= 45>45</option>
+                                            <option value= 65>65</option>
                                         </select>
 
                                     </li>
@@ -180,7 +179,7 @@
 
                                 <div class="card-footer">
 
-                                    <a href="#" class="btn btn-dark"><nuxt-link class="nav-link active" to="/insideensayo">Realizar ensayo</nuxt-link></a>
+                                    <a href="#" class="btn btn-dark" @click="crearEnsayo">Realizar ensayo</a>
 
                                 </div>
 
@@ -200,6 +199,33 @@
 
 </template>
 
-<script lang="ts" setup>
+<script>
+    import {tienda} from "../store/store"
+
+    export default{
+
+        data(){
+
+            return{
+
+                todoTienda: tienda(),
+                numPaginas: 0,
+                asignatura: ''
+            }
+
+        },
+
+        methods:{
+
+            crearEnsayo(){
+                
+                this.todoTienda.paginas = this.numPaginas
+                console.log(this.todoTienda.paginas)
+                this.$router.push({ path: '/insideensayo' })
+
+            }
+        }
+    }
+    
 
 </script>
