@@ -32,4 +32,3 @@ import { NavbarHeaderBasico } from '../.nuxt/components';
         ],
     });
 </script>
-
