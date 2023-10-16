@@ -2,14 +2,17 @@ import mongoose from 'mongoose';
 const Schema = mongoose.Schema;
 
 const usuarioSchema = new Schema({
-    nombreUsuario: String,
-    apellidoUsuario: String, 
-    correo: String,
-    contraseña: String,
+    nombreNombre: String,
+    apellidoPaterno: String, 
+    appellidoMaterno: String,
+    email: String,
+    password: String,
+    userName: String,
+    universidad: String,
     carrera: String,
-    universidad: String, 
-   
-
+    preguntasResponidas: {type: Array, default: []},
+    id: Number,
+    historialEnsayos: {type: Array, default: []},
 },{ versionKey: false }
 );
 
