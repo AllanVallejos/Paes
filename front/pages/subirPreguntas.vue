@@ -9,6 +9,10 @@
         <option value="M1">Competencia Matemática M1</option>
         <option value="M2">Competencia Matemática M2</option>
         <option value="HC">Historia y Ciencias Sociales</option>
+        <option value="CN">Ciencias</option>
+        <option value="CF">Fisica</option>
+        <option value="CQ">Quimica</option>
+        <option value="CB">Biologia</option>
       </select>
     </div>
 

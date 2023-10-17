@@ -42,6 +42,4 @@ export default class API{
             return error.response.data
         }
     }
-    
-
 }
