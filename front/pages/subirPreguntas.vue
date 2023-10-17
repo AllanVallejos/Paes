@@ -111,7 +111,7 @@ export default {
 
 <style>
 body {
-  background-color: #fb8500;
+    
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
