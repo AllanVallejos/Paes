@@ -24,7 +24,7 @@ router.post('/addusuario', async(req, res) => {
 
 router.post('/verificarusuario', async(req, res) => {
   const correo = req.body.correo;
-  const contraseña = req.body.contraseña  
+  const contraseña = req.body.contraseña;
  
   console.log(contraseña,correo)
   const response = await usuarioSchema.findOne({correo})

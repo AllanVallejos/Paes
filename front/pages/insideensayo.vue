@@ -88,15 +88,27 @@ export default {
             }
         },
 
+        async cargarPregunta(){
+            try{
+                const respuesta= await API.getpreguntabyid({"preguntaid":"6524526dbdd07e179d57fb97"});
+                console.log(respuesta);
+            }catch (error){
+                console.error(error);
+            }
+        }
+
     },
 
     mounted() {
 
         this.inicioEnsayo();
         setInterval(this.actualizarTiempoRestante, 1000);
+        this.cargarPregunta()
 
     },
 };
+
+
 </script>
 
 <style scoped>
@@ -109,3 +121,6 @@ export default {
     border: 1px solid #ccc;
 }
 </style>
+
+</script>
+  
