@@ -13,17 +13,15 @@ export default class API{
         }
     }
 
-    async getPregunta(id) {
+    static async getpreguntabyid(data){
         try {
-          const response = await fetch(`/api/getpregunta/${id}`); // Suponiendo que tu ruta sea /api/getpregunta/:id
-          if (!response.ok) {
-            throw new Error('Error al obtener la pregunta');
-          }
-          return await response.json();
+            const res = await axios.get(url+"getpreguntabyid/"+data.preguntaid)
+            console.log(data)
+            return res.data
         } catch (error) {
-          throw error;
+            return error.response.data
         }
-      }
+    }
       
     static async addusuario(data){
         try {

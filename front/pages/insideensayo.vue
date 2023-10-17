@@ -42,7 +42,7 @@
       },
       async cargarPregunta(){
         try{
-            const respuesta= await API.getPregunta(id);
+            const respuesta= await API.getpreguntabyid({"preguntaid":"6524526dbdd07e179d57fb97"});
             console.log(respuesta);
         }catch (error){
             console.error(error);
@@ -50,6 +50,9 @@
         }
 
     },
+    mounted(){
+        this.cargarPregunta()
+    }
   };
   </script>
   

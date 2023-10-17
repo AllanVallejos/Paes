@@ -22,16 +22,14 @@ router.post('/addpregunta', async(req, res) => {
   }
 );
 
-router.post('/getpregunta', async(req, res) => {
-  const pregunta = req.body.pregunta;
+router.get('/getpreguntabyid/:id', async(req, res) => {
+  const preguntaid = req.params.id;
  
-  console.log(pregunta)
-  const response = await preguntaSchema.findOne({pregunta})
+  console.log(req.params)
+  const response = await preguntaSchema.findOne({_id:preguntaid})
   .then((result) => {
-    console.log(result.pregunta)
- 
-    console.log("Valido")
-    res.json({"respuesta":true})
+    console.log(result)
+    res.json(result)
   })
   .catch((err) => {
     console.log(err)
