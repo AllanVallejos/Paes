@@ -22,17 +22,21 @@ router.post('/addpregunta', async(req, res) => {
   }
 );
 
-router.get('/getPregunta/:id', async (req, res) => {
-  try {
-    const pregunta = await Pregunta.findById(req.params.id); // Suponiendo que estás usando Mongoose y MongoDB
-    if (!pregunta) {
-      return res.status(404).json({ error: 'Pregunta no encontrada' });
-    }
-    res.json(pregunta);
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: 'Error al buscar la pregunta' });
-  }
-});
-
+router.post('/getpregunta', async(req, res) => {
+  const pregunta = req.body.pregunta;
+ 
+  console.log(pregunta)
+  const response = await preguntaSchema.findOne({pregunta})
+  .then((result) => {
+    console.log(result.pregunta)
+ 
+    console.log("Valido")
+    res.json({"respuesta":true})
+  })
+  .catch((err) => {
+    console.log(err)
+    res.json(err)
+  }); 
+}
+);
 module.exports = router;
