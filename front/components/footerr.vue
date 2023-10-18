@@ -1,6 +1,6 @@
 <template>
     
-    <footer class="text-white" style="text-align: center; position: absolute; bottom: 0; width: 100%; background-color: #c03a00e9; border: 1px solid black;">
+    <footer class="text-white">
 
         <div class = "row" style="padding-right: 0%;">
 
@@ -48,5 +48,12 @@
 <style>
     div[class="row"] {
         --bs-gutter-x: 0rem;
+    }
+    
+    footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        background-color: #c03a00e9;
     }
 </style>

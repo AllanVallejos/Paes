@@ -1,5 +1,5 @@
 <template>
-    
+    <div class="divPadreSubirPreguntas">
   <div class="SubirPregunta">
     <h1>Banco de preguntas PAES</h1>
     <div class="relleno">
@@ -68,6 +68,7 @@
       {{ confirmationMessage }}
     </p>
   </div>
+</div>
 </template>
 
 <script>
@@ -114,12 +115,12 @@ export default {
 </script>
 
 <style>
-body {
-    
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-}
+
+    .divPadreSubirPreguntas {
+    margin-top: 10px;
+    margin-bottom: 70px;
+    }
+
 .SubirPregunta {
   max-width: 500px;
   margin: 0 auto;

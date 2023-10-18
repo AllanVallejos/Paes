@@ -17,7 +17,8 @@
         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
         width: 300px;
         margin-right:30px;
-        margin-left: 0 auto; ">
+        margin-left: 0 auto; 
+        margin-bottom: 100px;">
         <h2 style="text-align: center;
         font-size: 30px;
         color: #000000;">

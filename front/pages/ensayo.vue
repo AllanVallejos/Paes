@@ -1,7 +1,7 @@
 <template>
     <body>
 
-        <div style="display: grid; place-items: center; margin-top: 2%;">
+        <div style="display: grid; place-items: center; margin-top: 2%; margin-bottom: 60px;">
 
             <h1 style="padding-bottom: 5%;"><u>Escoja el tipo de PAES que quieres simular:</u> </h1>
 

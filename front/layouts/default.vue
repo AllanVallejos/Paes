@@ -2,9 +2,7 @@ import { NavbarHeaderBasico } from '../.nuxt/components';
 <template>
   <div>
     <headerr />
-    <main>
         <slot />
-    </main>
     <footerr />
     </div>
 </template>
@@ -29,3 +27,11 @@ import { NavbarHeaderBasico } from '../.nuxt/components';
         ],
     });
 </script>
+
+<style>
+    body {
+        font-family: 'roboto', sans-serif;
+        background-color: #f5f5f5;
+    }
+
+</style>
