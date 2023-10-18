@@ -13,6 +13,17 @@ export default class API{
         }
     }
 
+    static async validarUsuario(data){
+        try {
+            console.log("Verificando usuariooooooo")
+            console.log(data)
+            const res = await axios.post(url+"verificarusuario",data)
+            return res.data
+        } catch (error) {
+            return error.response.data
+        }
+    }
+
     static async getpreguntabyid(data){
         try {
             const res = await axios.get(url+"getpreguntabyid/"+data.preguntaid)

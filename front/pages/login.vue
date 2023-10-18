@@ -18,22 +18,15 @@
 
 						<div class = "mb-4">
 
-							<label for = "name" class = "form-label" style = "color: black ;margin-bottom: 12px;"> <h5> Nombre </h5> </label>
-							<input type = "name" class = "form-control" id = "name" required>
-
-						</div>
-
-						<div class = "mb-4">
-
 							<label for = "email" class = "form-label" style = "color: black; margin-bottom: 12px;"> <h5> Correo Electrónico </h5> </label>
-							<input type = "email" class = "form-control" id = "email" required>
+							<input v-model="email" type = "email" class = "form-control" id = "email" name="email" required>
 
 						</div>
 
 						<div class = "mb-4">
 
 							<label for = "password" class = "form-label" style = "color: black; margin-bottom: 12px;"> <h5> Contraseña </h5> </label>
-							<input type = "password" class = "form-control" id = "password" required>
+							<input v-model="password" type = "password" class = "form-control" id = "password" name="email" required>
 
 						</div>
 
@@ -46,7 +39,7 @@
 
 						<div class = "d-grid" style="place-items: center;">
 
-							<button type = "submit" class = "btn btn-outline-secondary" style="width: 60%;"> Iniciar Sesión </button>
+							<button @click="login" type = "submit" class = "btn btn-outline-secondary" style="width: 60%;"> Iniciar Sesión </button>
 
 						</div>						
 					</form>
@@ -56,7 +49,23 @@
 	</body>
 </template>
 
-<script lang="ts" setup>
-
+<script>
+    import API from '@/api';
+    export default{
+        data () {
+        return {
+            email: '',
+            password: ''
+        }
+    },
+    methods: {
+        async login() {
+            await API.validarUsuario({
+                "email": this.email,
+                "password": this.password
+            });
+        }
+    }
+};
 
 </script>
