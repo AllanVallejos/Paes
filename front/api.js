@@ -15,10 +15,8 @@ export default class API{
 
     static async validarUsuario(data){
         try {
-            console.log("Verificando usuariooooooo")
-            console.log(data)
             const res = await axios.post(url+"verificarusuario",data)
-            return res.data
+            return res
         } catch (error) {
             return error.response.data
         }

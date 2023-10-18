@@ -28,10 +28,9 @@ router.post('/verificarusuario', async(req, res) => {
   .then((result) => {
  
     if(result.password==password){
-      console.log("Valido")
-      res.json({"respuesta":true})
+      res.json(true)
     }
-    else{res.json({"respuesta":false})
+    else{res.json(false)
     }    
   })
   .catch((err) => {

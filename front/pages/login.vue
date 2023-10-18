@@ -60,10 +60,15 @@
     },
     methods: {
         async login() {
-            await API.validarUsuario({
+            const respuesta = await API.validarUsuario({
                 "email": this.email,
                 "password": this.password
             });
+            if (respuesta === false) {
+                alert("Usuario no encontrado");
+            } else {
+                alert("Usuario encontrado");
+            }
         }
     }
 };
