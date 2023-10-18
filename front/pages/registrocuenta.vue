@@ -29,8 +29,8 @@
         <label for="apellido" style="display: block;  margin-bottom: 10px;">Apellido:</label>
         <input v-model="apellidoUsuario"  type="text" id="apellido" name="apellido" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px;"/>
 
-        <label for="correo" style="display: block;  margin-bottom: 10px;">Correo Electrónico:</label>
-        <input v-model="correo" type="email" id="email" name="email" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px;"/>
+        <label for="email" style="display: block;  margin-bottom: 10px;">Correo Electrónico:</label>
+        <input v-model="email" type="email" id="email" name="email" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px;"/>
 
         <label for="password" style="display: block;  margin-bottom: 10px;">Contraseña:</label>
         <input v-model="password" type="password" id="password" name="password" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px;"/>
@@ -68,7 +68,7 @@
             return {
             nombreUsuario: "", 
             apellidoUsuario: "",
-            correo: "", 
+            email: "", 
             password: "",
             carrera: "", 
             universidad: "" 
@@ -85,7 +85,7 @@
                 {
                 "nombreUsuario":this.nombreUsuario,
                 "apellidoUsuario": this.apellidoUsuario,
-                "correo": this.correo,
+                "email": this.email,
                 "contraseña": this.password,
                 "universidad": this.universidad,
                 "carrera":this.carrera,

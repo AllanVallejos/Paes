@@ -4,12 +4,12 @@ const Schema = mongoose.Schema;
 const usuarioSchema = new Schema({
     nombreUsuario: String,
     apellidoUsuario: String, 
-    correo: String,
-    contraseña: String,
+    email: {type: String, unique: true},
+    password: String,
     carrera: String,
-    universidad: String, 
-   
-
+    //preguntasResponidas: {type: Array, default: []},
+    id: Number,
+    //historialEnsayos: {type: Array, default: []},
 },{ versionKey: false }
 );
 
