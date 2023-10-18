@@ -289,7 +289,7 @@ export default {
                     if (this.pComprension != 0) {
 
                         this.todoTienda.paginas = this.pComprension;
-                        this.todoTienda.tipo = 'CL';
+                        this.todoTienda.tipo = "CL";
                         console.log(this.todoTienda.paginas);
                         this.$router.push({ path: "/insideensayo" });
 
@@ -303,7 +303,7 @@ export default {
                     if (this.pHistoria != 0) {
 
                         this.todoTienda.paginas = this.pHistoria;
-                        this.todoTienda.tipo = 'HC';
+                        this.todoTienda.tipo = "HC";
                         console.log(this.todoTienda.paginas);
                         this.$router.push({ path: "/insideensayo" });
 
@@ -319,6 +319,5 @@ export default {
         }
     }
 };
-
 
 </script>
