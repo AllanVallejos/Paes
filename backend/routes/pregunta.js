@@ -46,6 +46,7 @@ router.get('/getpreguntas/:categoria', async(req, res) => {
   console.log(req.params)
   const response = await preguntaSchema.find({categoria:categoria})
   .then((result) => {
+    console.log(result)
     result.forEach(function(preguntaPuntual) {
       console.log(preguntaPuntual.pregunta);
       console.log(preguntaPuntual.alternativas);
