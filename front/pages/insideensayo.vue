@@ -152,6 +152,9 @@ export default {
     },
 
     mounted() {
+        this.inicioEnsayo();
+        setInterval(this.actualizarTiempoRestante, 1000);
+        this.cargarPregunta()
     },
 };
 
