@@ -87,7 +87,7 @@
                 "nombreUsuario":this.nombreUsuario,
                 "apellidoUsuario": this.apellidoUsuario,
                 "email": this.email,
-                "contraseña": this.password,
+                "password": this.password,
                 "universidad": this.universidad,
                 "carrera":this.carrera,
                 
