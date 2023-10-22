@@ -320,4 +320,4 @@ export default {
     }
 };
 
-</script>
+</script>../store

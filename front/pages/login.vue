@@ -30,16 +30,11 @@
 
 						</div>
 
-						<div>
-
-							<input class = "form-check-input" type = "checkbox" value = "" id = "flexCheckDefault">
-							<label class = "form-check-label" for = "flexCheckDefault" style = "margin-bottom: 14px; outline-color: #000;">Recuerdame</label>
-
-						</div>
+				
 
 						<div class = "d-grid" style="place-items: center;">
 
-							<button @click="login" type = "submit" class = "btn btn-outline-secondary" style="width: 60%;"> Iniciar Sesión </button>
+							<v-button @click="login" type = "submit" class = "btn btn-outline-secondary" style="width: 60%;"> Iniciar Sesión </v-button>
 
 						</div>						
 					</form>
@@ -50,25 +45,55 @@
 </template>
 
 <script>
+    import Swal from 'sweetalert2'
     import API from '@/api';
+    import { tienda } from "../store/store"
+
     export default{
         data () {
         return {
+            todoTienda: tienda(),
             email: '',
-            password: ''
+            password: '',
+            usuario:''
         }
     },
     methods: {
         async login() {
-            const respuesta = await API.validarUsuario({
+            await API.validarUsuario({
                 "email": this.email,
                 "password": this.password
-            });
-            if (respuesta === false) {
-                alert("Usuario no encontrado");
-            } else {
-                alert("Usuario encontrado");
-            }
+            })
+            .then((result) => {
+                console.log(result)
+                if(result.resplogin==true){
+                    this.todoTienda.usuario =  result.usuario
+
+                    console.log(this.todoTienda.usuario)
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Login Valido',
+                        text: '',
+                    }    
+                    )
+                    this.$router.push({ path: "/ensayo" }); //redireccion usuario
+
+                }
+                else{
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Datos invalidos',
+                   
+                        })
+                }
+
+            })
+            .catch((err) => {
+                console.log(err)
+              
+            }); 
+     
         }
     }
 };

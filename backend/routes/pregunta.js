@@ -47,13 +47,13 @@ router.get('/getpreguntas/:categoria', async(req, res) => {
   const response = await preguntaSchema.find({categoria:categoria})
   .then((result) => {
     console.log(result)
-    result.forEach(function(preguntaPuntual) {
+    /* result.forEach(function(preguntaPuntual) {
       console.log(preguntaPuntual.pregunta);
       console.log(preguntaPuntual.alternativas);
       preguntasArray.push(preguntaPuntual.pregunta);
       alternativasArray.push(preguntaPuntual.alternativas)
-    });
-    res.json({ resultpreguntas: preguntasArray ,resultalternativas: alternativasArray});
+    }); */
+    res.json(result);
   })
   .catch((err) => {
     console.log(err)

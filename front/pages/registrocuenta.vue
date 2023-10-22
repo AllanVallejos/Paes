@@ -50,9 +50,9 @@
           <option value="carrera2">Carrera 2</option>
           <option value="carrera3">Carrera 3</option>
         </select>
-        <button @click="crear" type="submit">
+        <v-button @click="crear" type="submit">
         Crear cuenta
-        </button>
+        </v-button>
        
       </form>
     </div>

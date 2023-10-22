@@ -7,7 +7,7 @@ const preguntaSchema = new Schema({
     pregunta: String,
     alternativas: Array,
     correcta:String,
-    
+    respuestaUsuario: String,
   
 
 },{ versionKey: false }

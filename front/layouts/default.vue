@@ -1,13 +1,17 @@
 import { NavbarHeaderBasico } from '../.nuxt/components';
 <template>
   <div>
-    <headerr />
-        <slot />
-    <footerr />
+    <v-app>
+        <headerr />
+            <slot />
+        <footerr />
+    </v-app>
+    
     </div>
 </template>
 
 <script setup>
+    
 
         useHead({
     link:[

@@ -21,16 +21,27 @@ router.post('/addusuario', async(req, res) => {
 );
 
 router.post('/verificarusuario', async(req, res) => {
+  console.log(req.body)
   const email = req.body.email;
   const password = req.body.password;
 
-  const response = await usuarioSchema.findOne({email})
+  const response = await usuarioSchema.findOne({email:email})
+  
   .then((result) => {
- 
+    console.log(result)
     if(result.password==password){
-      res.json(true)
+      res.json({
+        "resplogin":true,
+        "usuario":result
+       
+       })
+      
     }
-    else{res.json(false)
+    else{res.json({
+      "resplogin":false,
+      "usuario":{}
+
+      })
     }    
   })
   .catch((err) => {

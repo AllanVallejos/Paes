@@ -1,29 +1,17 @@
 <template>
     <div class="row">
 
-        <h2>{{ this.todoTienda.tipo }}</h2>
+        <h2> Ensayo</h2>
 
-        <div class="col-10">
-
-            <div v-for="(question, index) in arrayPreguntas" :key="index" class="card text-bg-light mb-4"
-                style="min-width: 80%;">
-
-                <h3 class="card-header" style="color: #c03a00e9;">Pregunta {{ index + 1 }}</h3>
-
-                <p id="pregunta"> {{ question }} </p>
-
-
-
-                <div v-for="(alternativa, alternativaIndex) in arrayAlternativas[index]" :key="alternativaIndex"
-                    class="card-footer">
-
-                    <input type="radio" :id="'alternativa' + questionIndex + alternativaIndex" :value="alternativa"
-                        v-model="respuestas[questionIndex]" />
-                    <label :for="'alternativa' + questionIndex + alternativaIndex">{{ alternativa.text }}</label>
-
-                </div>
-
-            </div>
+        <div class="col-10" id="contenedor">
+            <pregunta 
+            :pregunta="question"
+           
+            v-for="(question, index) in ensayo" 
+            
+            />
+            
+           
 
         </div>
 
@@ -47,13 +35,14 @@
 
 import API from '@/api';
 import { tienda } from '~/store/store';
+import pregunta from "./pregunta.vue"
 
 export default {
 
     data() {
 
         return {
-
+            ensayo: [],
             arrayAlternativas: [],
             arrayPreguntas: [],
             respuestaUsuario: '',
@@ -93,7 +82,7 @@ export default {
         terminarEnsayo() {
             const preguntasSinResponder = this.respuestas.filter(respuesta => respuesta === '');
 
-            if (preguntasSinResponder.length === 0) {
+            /* if (preguntasSinResponder.length === 0) {
 
                 alert("verificación completada, todo respondido");
 
@@ -101,19 +90,19 @@ export default {
 
                 alert("faltan preguntas por responder");
 
-            }
+            } */
         },
 
         pararEnsayo() {
 
-            const tiempo = this.tiempoRestante
+           /*  const tiempo = this.tiempoRestante
             alert("Se ha detenido el examen queda: " + this.tiempoRestanteFormateado)
-
+ */
         },
 
         actualizarTiempoRestante() {
 
-            if (this.tiempoRestante > 0) {
+        /*     if (this.tiempoRestante > 0) {
 
                 this.tiempoRestante--;
 
@@ -121,7 +110,7 @@ export default {
 
                 alert("Se ha acabado el tiempo")
 
-            }
+            } */
         },
 
         async cargarPregunta() {
@@ -132,8 +121,7 @@ export default {
 
                     .then((result) => {
                         console.log(result);
-                        this.arrayPreguntas = result.resultpreguntas
-                        this.arrayAlternativas = result.resultalternativas
+                        this.ensayo = result
                     })
 
                     .catch((err) => {
@@ -156,6 +144,7 @@ export default {
         setInterval(this.actualizarTiempoRestante, 1000);
         this.cargarPregunta()
     },
+    components:{pregunta}
 };
 
 </script>
@@ -169,5 +158,11 @@ export default {
     padding: 10px;
     border: 1px solid #ccc;
 }
+
+#contenedor{
+    display:grid;
+    position: relative;
+}
 </style>
 
+~/store

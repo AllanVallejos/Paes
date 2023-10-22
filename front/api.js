@@ -19,7 +19,10 @@ export default class API{
     static async validarUsuario(data){
         try {
             const res = await axios.post(url+"verificarusuario",data)
-            return res
+            console.log("hola")
+            console.log(res.data+"xd")
+            return res.data
+
         } catch (error) {
             return error.response.data
         }
@@ -43,12 +46,13 @@ export default class API{
         try {
 
             const res = await axios.get(url+"getpreguntas/"+data.categoria)
-            console.log(data)
+            console.log(res.data)
             return res.data
 
         } catch (error) {
 
             return error.response.data
+
 
         }
     }
