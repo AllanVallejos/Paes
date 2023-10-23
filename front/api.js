@@ -16,6 +16,19 @@ export default class API{
         }
     }
 
+    static async addPuntajeCorte(data){
+        try {
+
+            const res = await axios.post(url+"addPuntajeCorte",data)
+            return res.data
+
+        } catch (error) {
+
+            return error.response.data
+
+        }
+    }
+
     static async validarUsuario(data){
         try {
             const res = await axios.post(url+"verificarusuario",data)

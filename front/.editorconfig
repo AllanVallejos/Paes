@@ -3,6 +3,13 @@
 # top-most EditorConfig file
 root = true
 
+--text: #240f0a;
+--background: #f7e7e3;
+--primary: #dc2f02;
+--secondary: #d4ecf2;
+--accent: #3861c2;
+
+
 [*]
 indent_style = space
 indent_size = 4

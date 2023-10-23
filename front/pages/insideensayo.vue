@@ -4,15 +4,7 @@
         <h2> Ensayo</h2>
 
         <div class="col-10" id="contenedor">
-            <pregunta 
-            :pregunta="question"
-           
-            v-for="(question, index) in ensayo" 
-            
-            />
-            
-           
-
+            <pregunta @alternativaActualizada = 'actualizacionPregunta' :pregunta="question" :indice="index" v-for="(question, index) in ensayo" />
         </div>
 
         <div class="col-2" style="background-color: white;">
@@ -50,7 +42,7 @@ export default {
             n: 0,
             respuestas: [],
             alternativas: ['Alternativa 1', 'Alternativa 2', 'Alternativa 3', 'Alternativa 4'],
-            tiempoRestante: 120,
+            tiempoRestante: 0,
 
         };
     },
@@ -79,38 +71,42 @@ export default {
             this.respuestas = Array(this.n).fill('')
         },
 
+        actualizacionPregunta(){
+
+            console.log(this.ensayo)
+            
+        }, 
+
         terminarEnsayo() {
+
             const preguntasSinResponder = this.respuestas.filter(respuesta => respuesta === '');
 
             /* if (preguntasSinResponder.length === 0) {
-
                 alert("verificación completada, todo respondido");
 
             } else {
-
                 alert("faltan preguntas por responder");
-
             } */
         },
 
         pararEnsayo() {
 
-           /*  const tiempo = this.tiempoRestante
+            const tiempo = this.tiempoRestante
             alert("Se ha detenido el examen queda: " + this.tiempoRestanteFormateado)
- */
+
         },
 
         actualizarTiempoRestante() {
 
-        /*     if (this.tiempoRestante > 0) {
-
-                this.tiempoRestante--;
-
-            } else {
-
-                alert("Se ha acabado el tiempo")
-
-            } */
+                 if (this.tiempoRestante > 0) {
+    
+                    this.tiempoRestante--;
+    
+                } else {
+    
+                    alert("Se ha acabado el tiempo")
+    
+                } 
         },
 
         async cargarPregunta() {
@@ -144,7 +140,7 @@ export default {
         setInterval(this.actualizarTiempoRestante, 1000);
         this.cargarPregunta()
     },
-    components:{pregunta}
+    components: { pregunta }
 };
 
 </script>
@@ -159,8 +155,8 @@ export default {
     border: 1px solid #ccc;
 }
 
-#contenedor{
-    display:grid;
+#contenedor {
+    display: grid;
     position: relative;
 }
 </style>

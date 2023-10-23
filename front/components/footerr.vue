@@ -1,59 +1,50 @@
+
 <template>
-    
-    <footer class="text-white">
+    <v-footer class="text-center d-flex flex-column" style="position: absolute;
+    text-align: center;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    background-color: #c03a00e9;
+    font-family: 'roboto', sans-serif; ">
 
-        <div class = "row" style="padding-right: 0%;">
+        <div>
 
-            <div>
-
-                <ul style = "padding: 0; font-size: 14px; text-align: center;">
-
-                    <li style = "display: inline-block; padding-right: 0.5%;">
-
-                        <a href = "#" style = "color: white ;"> Inicio </a>
-
-                    </li>
-
-                    <li style="display: inline-block; padding-right:  0.5%;">
-
-                        <a href = "#" style = "color: white;"> Terminos </a>
-
-                    </li>
-
-                    <li style="display: inline-block; padding-right:  0.5%;">
-
-                        <a href = "#" style = "color: white;"> Privacidad </a>
-
-                    </li>
-
-                    <li style="display: inline-block; padding-right:  0.5%;">
-
-                        <a href = "#" style = "color: white;"> Sobre nosotros </a>
-
-                    </li>
-
-                    <br>
-                    &copy; EnsayoPaes - 2023
-
-                </ul>
-
-            </div>
+            <v-btn v-for="icon in icons" :key="icon" class="mx-4" :icon="icon" variant="text"></v-btn>
 
         </div>
 
-    </footer>
-
+        <v-row justify="center" no-gutters>
+            <v-btn v-for="link in links" :key="link" color="white" variant="text" class="mx-2" rounded="xl">
+                {{ link }}
+            </v-btn>
+        </v-row>
+    </v-footer>
 </template>
 
+<script>
+export default {
+    data: () => ({
+        icons: [
+            'mdi-facebook',
+            'mdi-twitter',
+            'mdi-instagram',
+        ],
+
+        links: [
+            'Inicio',
+            'Informacion',
+            'Ensayos',
+        ],
+    }),
+}
+</script>
+
 <style>
-    div[class="row"] {
-        --bs-gutter-x: 0rem;
-    }
-    
-    footer {
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-        background-color: #c03a00e9;
-    }
+div[class="row"] {
+    --bs-gutter-x: 0rem;
+}
+
 </style>
