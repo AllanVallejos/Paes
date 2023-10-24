@@ -16,6 +16,19 @@ export default class API{
         }
     }
 
+    static async addtemaForo(data){
+        try {
+
+            const res = await axios.post(url+"addTemaForo",data)
+            return res.data
+
+        } catch (error) {
+
+            return error.response.data
+
+        }
+    }
+
     static async validarUsuario(data){
         try {
             const res = await axios.post(url+"verificarusuario",data)
