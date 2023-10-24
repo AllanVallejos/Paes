@@ -47,7 +47,12 @@ router.get('/getpreguntas/:categoria', async(req, res) => {
   const response = await preguntaSchema.find({categoria:categoria})
   .then((result) => {
     console.log(result)
-    /* result.forEach(function(preguntaPuntual) {
+    /* Necesito que expliquen porqué comentaron esto, 
+    que antes se usaba para dar las preguntas
+    y ya no se cargan las preguntas en el front*/
+
+    /*
+     result.forEach(function(preguntaPuntual) {
       console.log(preguntaPuntual.pregunta);
       console.log(preguntaPuntual.alternativas);
       preguntasArray.push(preguntaPuntual.pregunta);

@@ -10,7 +10,7 @@ const usuarioSchema = new Schema({
     //preguntasResponidas: {type: Array, default: []},
     id: Number,
     //historialEnsayos: {type: Array, default: []},
-    ensayoPendiente: []
+    ensayoPendiente: Array
 
 }, { versionKey: false }
 );
