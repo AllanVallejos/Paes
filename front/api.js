@@ -23,6 +23,18 @@ export default class API{
             return res.data
 
         } catch (error) {
+            return error.response.data
+
+        }
+    }
+
+    static async getTemasForo(data){
+        try {
+
+            const res = await axios.get(url+"getTemas")
+            return res.data
+
+        } catch (error) {
 
             return error.response.data
 

@@ -19,4 +19,17 @@ router.post('/addTemaForo', async(req, res) => {
   }
 );
 
+router.get('/getTemas', async(req, res) => {
+  //obtener temas del foro
+  await temaSchema.find({}).then((result) => {
+    res.json(result)
+    console.log("Temas de foro obtenidos")
+  })
+  .catch((err) => {
+    console.log(err)
+    res.json(err)
+  }); 
+}
+);
+
 module.exports = router;
