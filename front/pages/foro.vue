@@ -2,7 +2,7 @@
   <div>
     <body>
 
-        <h1>Foro</h1>
+        <h1>Es el Foro</h1>
 
     </body>
     
