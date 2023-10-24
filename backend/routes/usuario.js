@@ -9,24 +9,13 @@ router.post('/updateEnsayos', async(req, res) => {
   const _id = req.body._id;
   const ensayoPendiente = req.body.ensayoPendiente;
 
-  const response = await usuarioSchema.findOneAndUpdate({_id:_id},{ensayoPendiente:ensayoPendiente})
+  const usuario = await usuarioSchema.findById(_id);
+  if (!usuario) {
+  return res.status(404).json({ mensaje: 'Usuario no encontrado' });
+  }
   
-  .then((result) => {
-    console.log(result)
-    if(result._id==_id){
-      res.json({
-        "resplogin":true,
-        "usuario":result
-       
-       })
-      
-    }
-    else{res.json({
-      "resplogin":false,
-      "usuario":{}
-
-      })
-    }    
+  const response = await usuarioSchema.findByIdAndUpdate(_id,{ensayoPendiente:ensayoPendiente}).then((result) => {
+    res.json(result)
   })
   .catch((err) => {
     console.log(err)
