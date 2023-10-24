@@ -2,7 +2,7 @@
     <div class="row">
 
         <h2> Ensayo</h2>
-
+        <!-- Hay un error en pregunta @alternativaactualizada, no estoy seguro de que es -->
         <div class="col-10" id="contenedor">
             <pregunta @alternativaActualizada = 'actualizacionPregunta' :pregunta="question" :indice="index" v-for="(question, index) in ensayo" />
         </div>
@@ -89,11 +89,27 @@ export default {
             } */
         },
 
-        pararEnsayo() {
-
+        async pararEnsayo() {
             const tiempo = this.tiempoRestante
-            alert("Se ha detenido el examen queda: " + this.tiempoRestanteFormateado)
+            res.json(this.todoTienda._id)
+            try{
+                await API.updateEnsayos({ _id: this._id,"ensayoPendiente":this.ensayo }).then((result) => {
+                        console.log(result);
+                        this.ensayo = result
+                    })
 
+                    .catch((err) => {
+
+                        console.log(err)
+
+                    });
+                    alert("Se ha detenido el examen queda: " + this.tiempoRestanteFormateado)
+            }
+            catch (error) {
+
+            console.error(error);
+
+            }
         },
 
         actualizarTiempoRestante() {
@@ -112,7 +128,6 @@ export default {
         async cargarPregunta() {
 
             try {
-
                 await API.getpreguntas({ "categoria": this.todoTienda.tipo })
 
                     .then((result) => {
