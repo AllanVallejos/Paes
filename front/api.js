@@ -16,7 +16,7 @@ export default class API{
         }
     }
 
-    static async addtemaForo(data){
+    static async addTemaForo(data){
         try {
 
             const res = await axios.post(url+"addTemaForo",data)
