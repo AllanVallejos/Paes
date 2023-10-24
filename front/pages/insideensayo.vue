@@ -91,11 +91,11 @@ export default {
 
         async pararEnsayo() {
             const tiempo = this.tiempoRestante
-            res.json(this.todoTienda._id)
             try{
-                await API.updateEnsayos({ _id: this._id,"ensayoPendiente":this.ensayo }).then((result) => {
+                await API.updateEnsayos({ "_id": this.todoTienda.usuario._id,"ensayoPendiente":this.ensayo }).then((result) => {
                         console.log(result);
                         this.ensayo = result
+                        alert("Se ha detenido el examen queda: " + this.tiempoRestanteFormateado)
                     })
 
                     .catch((err) => {
@@ -103,7 +103,6 @@ export default {
                         console.log(err)
 
                     });
-                    alert("Se ha detenido el examen queda: " + this.tiempoRestanteFormateado)
             }
             catch (error) {
 

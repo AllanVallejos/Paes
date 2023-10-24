@@ -82,4 +82,17 @@ export default class API{
 
         }
     }
+
+    static async updateEnsayos(data){
+        try {
+
+            const res = await axios.post(url+"updateEnsayo",data)
+            return res.data
+
+        } catch (error) {
+
+            return error.response.data
+
+        }
+    }
 }
