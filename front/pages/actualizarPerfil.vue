@@ -18,7 +18,7 @@
 
                         <div style="margin-bottom: 4%;">
 
-                            <h3>Nombre de usuario:</h3>
+                            <h3>{{ this.tienda.usuario.nombreUsuario}}</h3>
 
                             <p class="d-inline-flex gap-1" >
                                 <a class="btn btn-secondary" data-bs-toggle="collapse" href="#collapseName" role="button" aria-expanded="false" aria-controls="collapseName">
@@ -114,9 +114,68 @@
 </template>
 
 <script>
+    import Swal from 'sweetalert2'
+    import API from '@/api';
+    import { tienda } from "../store/store"
+
+    export default{
+        data () {
+        return {
+            todoTienda: tienda(),
+            nombre: '',
+            correo: '',
+            contraseña:'',
+
+        }
+    },
+    methods: {
+        async editarPerfil() {
+            await API.validarUsuario({
+                "email": this.email,
+                "password": this.password
+            })
+            .then((result) => {
+                console.log(result)
+                if(result.nombreUsuario=="nombre"){
+                    
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Login Valido',
+                        text: '',
+                    }    
+                    )
+                    this.$router.push({ path: "/homeUsuario" }); //redireccion usuario
+
+                }
+                else{
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Datos invalidos',
+                   
+                        })
+                }
+
+            })
+            .catch((err) => {
+                console.log(err)
+              
+            }); 
+     
+        }
+    }
+};
+
+</script>
+
+<!-- <script>
 
     export default {
-
+        async asyncData({ result }) {
+  
+        const usuario = await usuario.findById(result);
+        return { usuario };
+    },
         data() {
 
             return {
@@ -146,11 +205,11 @@
 
                 if(this.contraseña === 'contraseña'){
 
-                    alert('Ya estas usando esta contrtaseña')
+                    alert('Ya estas usando esta contraseña')
 
                 }
             }
         }
     };
 
-</script>
+</script> -->

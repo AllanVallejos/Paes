@@ -9,14 +9,14 @@
             
             <div class="relleno" style="padding-top: 2%;">
 
-                <v-select v-model="seleccionarUniversidad" label="Universidad" :items="['Universidad de talca', 'Universidad de Chile','Universidad Diego Portales']"
+                <v-select v-model="seleccionarUniversidad" label="Universidad" :items="['Universidad de Talca', 'Universidad de Chile','Universidad Diego Portales']"
                     variant="outlined"></v-select>
 
             </div>
 
             <div class="relleno">
 
-                <v-select v-model="seleccionarCarrera" label="Carrera" :items="['Computaciom', 'Medicina','Electrica']"
+                <v-select v-model="seleccionarCarrera" label="Carrera" :items="['Computación', 'Medicina','Electrica']"
                     variant="outlined"></v-select>
 
             </div>
@@ -28,19 +28,18 @@
             </div>
 
             <div class="card-footer">
-                <button @click="publicarPregunta" class="botonDePublicar">
+                <button @click="publicarPuntajeCorte" class="botonDePublicar">
                     Agregar puntaje
                 </button>
             </div>
 
-            <p v-if="confirmationMessage" class="mensajePop">
-                {{ confirmationMessage }}
-            </p>
+          
         </div>
     </div>
 </template>
 
 <script>
+import Swal from 'sweetalert2'
 import API from '@/api';
 export default {
 
@@ -55,7 +54,11 @@ export default {
     methods: {
 
         publicarPuntajeCorte() {
-            this.confirmationMessage = "El puntaje se ha agregado con exito";
+            Swal.fire({
+                icon: 'success',
+                title: 'Pregunta publicada con éxito',
+                text: '',
+                      })
             this.crearPregunta()
         },
 
