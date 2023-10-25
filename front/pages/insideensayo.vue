@@ -91,9 +91,12 @@ export default {
 
         async pararEnsayo() {
             const tiempo = this.tiempoRestante
+            const idusuario = this.todoTienda.usuario._id
+            const ensayo=this.ensayo
             try{
-                await API.updateEnsayos({ "_id": this.todoTienda.usuario._id,"ensayoPendiente":this.ensayo }).then((result) => {
+                await API.updateEnsayos({ "_id":idusuario,"ensayoPendiente":ensayo }).then((result) => {
                         console.log(result);
+                        console.log(this.todoTienda.usuario._id)
                         this.ensayo = result
                         alert("Se ha detenido el examen queda: " + this.tiempoRestanteFormateado)
                     })

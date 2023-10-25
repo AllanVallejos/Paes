@@ -4,17 +4,12 @@ const router = express.Router();
 // importar el modelo nota
 import usuarioSchema from '../models/usuario';
 
-router.post('/updateEnsayos', async(req, res) => {
+router.put('/updateEnsayos', async(req, res) => {
   console.log(req.body)
   const _id = req.body._id;
   const ensayoPendiente = req.body.ensayoPendiente;
-
-  const usuario = await usuarioSchema.findById(_id);
-  if (!usuario) {
-  return res.status(404).json({ mensaje: 'Usuario no encontrado' });
-  }
   
-  const response = await usuarioSchema.findByIdAndUpdate(_id,{ensayoPendiente:ensayoPendiente}).then((result) => {
+  const response = await usuarioSchema.findByIdAndUpdate(_id,{$push:{"ensayoPendiente":ensayoPendiente}},{new:true}).then((result) => {
     res.json(result)
   })
   .catch((err) => {
