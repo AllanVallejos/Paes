@@ -4,15 +4,16 @@
         <form>
         <label for="nombreTema">Nombre del Tema</label>
         <input type="text" id="nombreTema" name="nombreTema" v-model="nombreTema" required/>
-        <button @click="crear" type="submit">
-            Publicar Tema
-        </button>
+        <v-btn @click="crear" required>
+          Publicar Tema
+        </v-btn>
         </form>
     </div>
 </template>
 
 <script>
     import API from '@/api';
+    import Swal from 'sweetalert2'
     export default {
         data() {
             return {
@@ -21,37 +22,63 @@
         },
         methods: {
             crear() {
+                
                 this.confirmationMessage = "Tema creadoo"; //Aun no se como hacer que se muestre un mensaje de confirmacion
                 this.crearTema()
+                
             },
             async crearTema(){
+                const temas = await API.getTemasForo() //Obtenemos los temas del foro ya creados
+                const listaTemas = [] //Lista de nombres de temas
                 if (this.nombreTema != "") {    // Si la entrada es no vacia
+                    
+                    for(let temon of temas){
+                        listaTemas.push(temon.nombreTema)  //Agregamos los nombres de los temas a la lista
+                    }
+                    if(listaTemas.includes(this.nombreTema)){ //Revisamos si el tema ya existe
+                        const confirmation = await Swal.fire({ //Si el tema ya existe se le pregunta al usuario si desea crearlo de todas formas
+                            title: 'El tema ya existe, ¿desea crearlo de todas formas?',
+                            showDenyButton: true,
+                            confirmButtonText: `Crear`,
+                            denyButtonText: `No crear`,
+                        })
+                        if(confirmation.isConfirmed){ //Si el usuario desea crearlo de todas formas
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Tema creado',
+                                text: ''
+                            });
+                            await API.addTemaForo(
+                                {
+                                    "nombreTema":this.nombreTema,
+                                })
+                        }else{
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Error',
+                                text: 'El tema no se ha creado'
+                            }    
+                          );
+                        }
+                    }else{      //Si el tema no existe entonces se crea
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Tema creado',
+                            text: ''
+                        });
                     console.log(this.nombreTema)
                     await API.addTemaForo(
                         {
                             "nombreTema":this.nombreTema,
                         })
-                    alert("Tema creado")
-                    // const temas = await API.getTemasForo() //Obtenemos los temas del foro ya creados
-                    // const listaTemas = [] //Lista de nombres de temas
-                    // for(let temon of temas){
-                    //     listaTemas.push(temon.nombreTema)  //Agregamos los nombres de los temas a la lista
-                    // }
-                    // if(listaTemas.includes(this.nombreTema)){ //Revisamos si el tema ya existe
-                    //     const confirmation = confirm("El tema ya existe, ¿desea crearlo de todas formas?")
-                    //     if(confirmation){ //El usuario confirma que desea crear el tema de todas formas
-                    //         await API.addTemaForo(
-                    //         {
-                    //             "nombreTema":this.nombreTema,
-                    //         })
-                    //     }
-                    // }else{      //Si el tema no existe entonces se crea
-                    //     await API.addTemaForo(
-                    //     {
-                    //         "nombreTema":this.nombreTema,
-                    //     })
-                    //     alert("Tema creado")
-                    // }
+                    }
+                } else{
+                    Swal.fire({
+                      icon: 'error',
+                      title: 'Error',
+                      text: 'El tema no puede estar vacio'
+                    }    
+                  );
                 }
             },
         }
@@ -86,7 +113,7 @@
         border-radius: 5px;
         
     }
-    .divPadre form button {
+    .divPadre form v-btn {
         background-color: #000000;
         color: #fff;
         border: none;
@@ -94,9 +121,9 @@
         border-radius: 5px;
         cursor: pointer;
     }
-    .divPadre form button:hover {
-        background-color: #fff;
-        color: #000000;
-        border: 1px solid #000000;
+    .divPadre form v-btn:hover {
+        background-color: #c03a00e9;
+        color: #ffffff;
+        border: 1px;
     }
 </style>
