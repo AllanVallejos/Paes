@@ -4,7 +4,8 @@
         <h2> Ensayo</h2>
         <!-- Hay un error en pregunta @alternativaactualizada, no estoy seguro de que es -->
         <div class="col-10" id="contenedor">
-            <pregunta @alternativaActualizada = 'actualizacionPregunta' :pregunta="question" :indice="index" v-for="(question, index) in ensayo" />
+            <pregunta @alternativaActualizada='actualizacionPregunta' :pregunta="question" :indice="index"
+                v-for="(question, index) in ensayo" />
         </div>
 
         <div class="col-2" style="background-color: white;">
@@ -25,7 +26,9 @@
 
 <script>
 
+import Swal from 'sweetalert2'
 import API from '@/api';
+
 import { tienda } from '~/store/store';
 import pregunta from "./pregunta.vue"
 
@@ -71,11 +74,11 @@ export default {
             this.respuestas = Array(this.n).fill('')
         },
 
-        actualizacionPregunta(){
+        actualizacionPregunta() {
 
             console.log(this.ensayo)
-            
-        }, 
+
+        },
 
         terminarEnsayo() {
 
@@ -92,14 +95,19 @@ export default {
         async pararEnsayo() {
             const tiempo = this.tiempoRestante
             const idusuario = this.todoTienda.usuario._id
-            const ensayo=this.ensayo
-            try{
-                await API.updateEnsayos({ "_id":idusuario,"ensayoPendiente":ensayo }).then((result) => {
-                        console.log(result);
-                        console.log(this.todoTienda.usuario._id)
-                        this.ensayo = result
-                        alert("Se ha detenido el examen queda: " + this.tiempoRestanteFormateado)
+            const ensayo = this.ensayo
+            try {
+                await API.updateEnsayos({ "_id": idusuario, "ensayoPendiente": ensayo }).then((result) => {
+                    console.log(result);
+                    console.log(this.todoTienda.usuario._id)
+                    this.ensayo = result
+
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'Se ha detenido el examen',
+                        text: 'Queda:'+ this.tiempoRestanteFormateado,
                     })
+                })
 
                     .catch((err) => {
 
@@ -109,22 +117,22 @@ export default {
             }
             catch (error) {
 
-            console.error(error);
+                console.error(error);
 
             }
         },
 
         actualizarTiempoRestante() {
 
-                 if (this.tiempoRestante > 0) {
-    
-                    this.tiempoRestante--;
-    
-                } else {
-    
-                    alert("Se ha acabado el tiempo")
-    
-                } 
+            if (this.tiempoRestante > 0) {
+
+                this.tiempoRestante--;
+
+            } else {
+
+                alert("Se ha acabado el tiempo")
+
+            }
         },
 
         async cargarPregunta() {

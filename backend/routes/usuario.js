@@ -33,6 +33,45 @@ router.post('/addusuario', async(req, res) => {
   }
 );
 
+router.put('/editarUsuario', async (req, res) => {
+  const _id = req.body._id;
+  const nombreUsuario = req.body.nombreUsuario;
+  const email = req.body.email;
+  const password = req.body.password;
+
+  // Define un objeto vacío para almacenar las propiedades a actualizar
+  const updateData = {};
+
+  if (nombreUsuario) {
+    updateData.nombreUsuario = nombreUsuario;
+  }
+
+  if (email) {
+    updateData.email = email;
+  }
+
+  if (password) {
+    // Asegúrate de almacenar la contraseña de forma segura (por ejemplo, con hash)
+    updateData.password = password;
+  }
+
+  // Utiliza findByIdAndUpdate para actualizar el usuario
+  const response = await usuarioSchema.findByIdAndUpdate(
+    _id,
+    { $set: updateData },
+    { new: true }
+  )
+    .then((result) => {
+      res.json(result);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.json(err);
+    });
+});
+
+
+
 router.post('/verificarusuario', async(req, res) => {
   console.log(req.body)
   const email = req.body.email;

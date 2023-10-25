@@ -5,7 +5,7 @@ const router = express.Router();
 import corteSchema from '../models/puntajeCorte';
 import puntajeCorte from '../models/puntajeCorte';
 
-router.post('/addcorte', async (req, res) => {
+router.post('/addPuntajeCorte', async (req, res) => {
 	const body = req.body;
 
 	const corte = corteSchema(body)
@@ -20,3 +20,5 @@ router.post('/addcorte', async (req, res) => {
 		});
 }
 );
+
+module.exports = router;
