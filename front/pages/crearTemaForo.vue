@@ -3,7 +3,7 @@
         <h1>Crear Tema</h1>
         <form>
         <label for="nombreTema">Nombre del Tema</label>
-        <input type="text" id="nombreTema" name="nombreTema" v-model="nombreTema" />
+        <input type="text" id="nombreTema" name="nombreTema" v-model="nombreTema" required/>
         <button @click="crear" type="submit">
             Publicar Tema
         </button>
@@ -16,20 +16,38 @@
     export default {
         data() {
             return {
-                nombreTema: ""
+                nombreTema: "" //Nombre de tema ingresado por el usuario
             };
         },
         methods: {
             crear() {
-                this.confirmationMessage = "Tema creado";
+                this.confirmationMessage = "Tema creadoo"; //Aun no se como hacer que se muestre un mensaje de confirmacion
                 this.crearTema()
             },
             async crearTema(){
-                const respuesta= await API.addTemaForo(
-                    {
-                        "nombreTema":this.nombreTema,
+                if (this.nombreTema != "") {    // Si la entrada es no vacia
+                    const temas = await API.getTemasForo() //Obtenemos los temas del foro ya creados
+                    const listaTemas = [] //Lista de nombres de temas
+                    for(let temon of temas){
+                        listaTemas.push(temon.nombreTema)  //Agregamos los nombres de los temas a la lista
                     }
-                )
+                    alert("llego")
+                    if(listaTemas.includes(this.nombreTema)){ //Revisamos si el tema ya existe
+                        const confirmation = confirm("El tema ya existe, ¿desea crearlo de todas formas?")
+                        if(confirmation){ //El usuario confirma que desea crear el tema de todas formas
+                            await API.addTemaForo(
+                            {
+                                "nombreTema":this.nombreTema,
+                            })
+                        }
+                    }else{      //Si el tema no existe entonces se crea
+                        await API.addTemaForo(
+                        {
+                            "nombreTema":this.nombreTema,
+                        })
+                    }
+                }
+                
             },
         }
     };
