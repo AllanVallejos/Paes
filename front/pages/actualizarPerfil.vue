@@ -143,9 +143,27 @@ export default {
                 password: this.contraseña,
 
             }
-
+            if (
+            usuarioActualizado.nombreUsuario !== "" ||
+            usuarioActualizado.email !== "" ||
+            usuarioActualizado.password !== ""
+            ){
+                Swal.fire({
+                        icon: 'success',
+                        title: 'Actualización Valida',
+                        text: '',
+                    }    
+                    )
             console.log(usuarioActualizado)
             await API.editarUsuario(usuarioActualizado)
+            }else { 
+                Swal.fire({
+                        icon: 'error',
+                        title: 'Actualización Invalida',
+                        text: '',
+                    }    
+                    )
+            }
         }
     }
 };

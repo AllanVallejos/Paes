@@ -42,18 +42,19 @@ router.put('/editarUsuario', async (req, res) => {
   // Define un objeto vacío para almacenar las propiedades a actualizar
   const updateData = {};
 
-  if (nombreUsuario) {
+  if (nombreUsuario !== null && nombreUsuario !== "") {
     updateData.nombreUsuario = nombreUsuario;
   }
-
-  if (email) {
+  
+  if (email !== null && email !== "") {
     updateData.email = email;
   }
-
-  if (password) {
+  
+  if (password !== null && password !== "") {
     // Asegúrate de almacenar la contraseña de forma segura (por ejemplo, con hash)
     updateData.password = password;
   }
+  
 
   // Utiliza findByIdAndUpdate para actualizar el usuario
   const response = await usuarioSchema.findByIdAndUpdate(
