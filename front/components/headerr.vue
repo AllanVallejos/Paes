@@ -1,74 +1,95 @@
 import { ServerPlaceholder, NuxtLink } from '../.nuxt/components';
+
 <template>
+    
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark">
-            <div class="container-fluid">
-                <a class="navbar-brand">
-                    <h1>✓ Ensayo Paes</h1>
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav me-2 -mb-2 mb-lg-0 ">
-                        <li class="nav-item">
-                            <NuxtLink class="nav-link active" to="/">Home</NuxtLink>
-                        </li>
-                        <li class="nav-item">
-                            <NuxtLink class="nav-link active" to="/foro">Foro</NuxtLink>
-                        </li>
-                        <li class="nav-item">
-                            <NuxtLink class="nav-link active" to="/ensayo">Ensayos</NuxtLink>
-                        </li>
-                        <li class="nav-item">
-                            <NuxtLink class="nav-link active" to="/subirPreguntas">Subir Pregunta</NuxtLink>
-                        </li>
-                        <li class="nav-item">
-                            <NuxtLink class="nav-link active" to="/subirPuntaje">Subir Puntaje de corte</NuxtLink>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false" style="color: #ffffff;">
-                                Cuenta
-                            </a>
-                            <ul class="dropdown-menu" style="color: #ffffff;">
-                                <li>
-                                    <NuxtLink class="dropdown-item" to="/actualizarPerfil">Editar Cuenta</NuxtLink>
-                                </li>
-                                <li>
-                                    <NuxtLink class="dropdown-item" to="/login">Iniciar Sesion</NuxtLink>
-                                </li>
-                                <li>
-                                    <NuxtLink class="dropdown-item" to="/registrocuenta">Registrar Cuenta</NuxtLink>
-                                </li>
-                            </ul>
-                        </li>
+
+        <nav class="navbar navbar-expand-lg">
+
+            <div class="container-fluid" style="color">
+
+                <a class="navbar-brand"><h1>✓ Ensayo Paes</h1></a>
+
+                <div>
+
+                    <ul class="navbar-nav me-auto -mb-2 mb-lg-0" >
+
+                        <li class="nav-item"><NuxtLink class="nav-link active" to="/">Home</NuxtLink>  </li>
+                        <li class="nav-item"><NuxtLink class="nav-link active" to="/subirPuntaje">Subir puntaje de corte</NuxtLink>  </li>
+                        <li class="nav-item"><NuxtLink class="nav-link active" to="/foro">Foro</NuxtLink></li>
+
+                        <li class="nav-item"><NuxtLink class="nav-link active" to="/ensayo">Ensayos</NuxtLink></li>
+
+                        <li class="nav-item"><NuxtLink class="nav-link active" to="/subirPreguntas">Subir Pregunta</NuxtLink></li>
+
+                        <li class="nav-item"><NuxtLink class="nav-link active" to="/login">Iniciar Sesion</NuxtLink></li>
+                        <li class="nav-item"><NuxtLink class="nav-link active" to="/registrocuenta">Registrar Cuenta</NuxtLink></li>
+                       
+                        <!--  <li class="nav-item dropdown">
+
+                      <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Cuenta</a>
+
+                            <ul class="dropdown-menu"> -->
+
+                               <!--  <li><NuxtLink class="dropdown-item" to="/actualizarPerfil">Editar Cuenta</NuxtLink> </li> -->
+
+                                <!-- <li><NuxtLink class="dropdown-item" to="/login">Iniciar Sesion</NuxtLink></li> -->
+
+                               
+
+                           <!--  </ul>
+
+                        </li> -->
+
                     </ul>
+
                 </div>
+
             </div>
+
         </nav>
+
     </header>
+
 </template>
-  
-<script setup>
-const user = ref(true);
+<script setup lang="ts">
+    const user = ref(true)
 </script>
-  
-<style scoped>
 
-.container-fluid {
-    font-family: 'roboto', sans-serif;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
+<style>
+
+  nav {
+    font-family: 'Roboto', sans-serif;
+    position: fixed;
+    top: 0;
+    width: 100%;
     background-color: #c03a00e9;
-    position: flex;
-}
 
-.nav-item li:hover {
-    color: #ffffff;
-    transform: scale(1.2);
-}
-
-
-</style>
+  }
   
+  .navbar-brand {
+    color: #fff;
+    margin-right: 20px;
+  }
+  
+  .nav-link {
+    color: #fff;
+    font-size: 16px;
+    transition: color 0.3s, transform 0.3s;
+  }
+  
+  .nav-link:hover {
+    color: #ffffff;
+    transform: scale(1.1);
+  }
+  
+  .dropdown-item {
+    color: #333; 
+  }
+  
+  .dropdown-item:hover {
+    color: #000; 
+  }
+
+  
+</style>
