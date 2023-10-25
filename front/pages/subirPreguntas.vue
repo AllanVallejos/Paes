@@ -72,6 +72,7 @@
 </template>
 
 <script>
+import Swal from 'sweetalert2'
 import API from '@/api';
 export default {
   
@@ -95,8 +96,13 @@ export default {
       this.alternativas.splice(i, 1);
     },
     publicarPregunta() {
-      this.confirmationMessage = "Pregunta publicada con éxito.";
+      Swal.fire({
+            icon: 'success',
+            title: 'Respuesta subida con éxito',
+            text: '',
+                        })
       this.crearPregunta()
+      this.$router.push({ path: "/subirPreguntas" });
     },
     async crearPregunta(){
       const respuesta= await API.addpregunta(

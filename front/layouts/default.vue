@@ -2,9 +2,7 @@ import { NavbarHeaderBasico } from '../.nuxt/components';
 <template>
   <div>
     <v-app>
-        <headerr />
-            <slot />
-        <footerr />
+        <slot />
     </v-app>
     
     </div>

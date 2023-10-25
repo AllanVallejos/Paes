@@ -76,7 +76,7 @@
                         text: '',
                     }    
                     )
-                    this.$router.push({ path: "/ensayo" }); //redireccion usuario
+                    this.$router.push({ path: "/homeUsuario" }); //redireccion usuario
 
                 }
                 else{

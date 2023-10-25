@@ -1,7 +1,10 @@
 <template>
 
     <body>
-        <h1>Home</h1>
+        <headerr />
+       
+        <footerr />
+        
     </body>
 
 

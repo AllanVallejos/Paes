@@ -1,6 +1,7 @@
 import { ServerPlaceholder, NuxtLink } from '../.nuxt/components';
-<template>
 
+<template>
+    
     <header>
 
         <nav class="navbar navbar-expand-lg">
@@ -21,21 +22,24 @@ import { ServerPlaceholder, NuxtLink } from '../.nuxt/components';
 
                         <li class="nav-item"><NuxtLink class="nav-link active" to="/subirPreguntas">Subir Pregunta</NuxtLink></li>
 
-                        <li class="nav-item dropdown">
+                        <li class="nav-item"><NuxtLink class="nav-link active" to="/login">Iniciar Sesion</NuxtLink></li>
+                        <li class="nav-item"><NuxtLink class="nav-link active" to="/registrocuenta">Registrar Cuenta</NuxtLink></li>
+                       
+                        <!--  <li class="nav-item dropdown">
 
-                            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Cuenta</a>
+                      <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Cuenta</a>
 
-                            <ul class="dropdown-menu">
+                            <ul class="dropdown-menu"> -->
 
-                                <li><NuxtLink class="dropdown-item" to="/actualizarPerfil">Editar Cuenta</NuxtLink> </li>
+                               <!--  <li><NuxtLink class="dropdown-item" to="/actualizarPerfil">Editar Cuenta</NuxtLink> </li> -->
 
-                                <li><NuxtLink class="dropdown-item" to="/login">Iniciar Sesion</NuxtLink></li>
+                                <!-- <li><NuxtLink class="dropdown-item" to="/login">Iniciar Sesion</NuxtLink></li> -->
 
-                                <li><NuxtLink class="dropdown-item" to="/registrocuenta">Registrar Cuenta</NuxtLink></li>
+                               
 
-                            </ul>
+                           <!--  </ul>
 
-                        </li>
+                        </li> -->
 
                     </ul>
 
@@ -54,20 +58,38 @@ import { ServerPlaceholder, NuxtLink } from '../.nuxt/components';
 
 <style>
 
-    nav {
-        font-family: 'roboto', sans-serif;
-        position: fixed;
-        top: 0;
-        width: 100%;
-        border-bottom-left-radius: 10px;
-        border-bottom-right-radius: 10px;
-        background-color: #c03a00e9;
-    }
+  nav {
+    font-family: 'Roboto', sans-serif;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #c03a00e9;
 
-    .nav-item li:hover{
-        color: #ffffff;
-        transform: scale(1.2);
-    }
+  }
+  
+  .navbar-brand {
+    color: #fff;
+    margin-right: 20px;
+  }
+  
+  .nav-link {
+    color: #fff;
+    font-size: 18px;
+    transition: color 0.3s, transform 0.3s;
+  }
+  
+  .nav-link:hover {
+    color: #ffffff;
+    transform: scale(1.1);
+  }
+  
+  .dropdown-item {
+    color: #333; 
+  }
+  
+  .dropdown-item:hover {
+    color: #000; 
+  }
 
-
+  
 </style>

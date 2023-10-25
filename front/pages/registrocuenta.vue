@@ -50,9 +50,14 @@
           <option value="carrera2">Carrera 2</option>
           <option value="carrera3">Carrera 3</option>
         </select>
-        <v-button @click="crear" type="submit">
-        Crear cuenta
-        </v-button>
+        <v-btn @click="crear"
+            depressed
+            color="primary"
+          >
+            Crear cuenta
+          </v-btn>
+     
+  
        
       </form>
     </div>
@@ -61,7 +66,7 @@
 </template>
 
 <script>
-    
+    import Swal from 'sweetalert2'
     import API from '@/api';
     export default {
     
@@ -78,7 +83,14 @@
         methods: {
     
             crear() {
-            this.confirmationMessage = "Cuenta creada";
+        
+            Swal.fire({
+                        icon: 'success',
+                        title: 'Login Valido',
+                        text: '',
+                    }    
+                    )
+                    this.$router.push({ path: "/homeUsuario" });
             this.crearUsuario()
             },
             async crearUsuario(){
