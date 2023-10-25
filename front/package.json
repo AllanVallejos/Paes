@@ -24,6 +24,8 @@
     "bootstrap": "^5.3.2",
     "pinia": "^2.1.7",
     "popper.js": "^1.14.3",
+    "vuejs-logger": "1.5.5",
     "sweetalert2": "^11.6.13"
+
   }
 }

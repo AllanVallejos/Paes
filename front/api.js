@@ -16,6 +16,31 @@ export default class API{
         }
     }
 
+    static async addTemaForo(data){
+        try {
+
+            const res = await axios.post(url+"addTemaForo",data)
+            return res.data
+
+        } catch (error) {
+            return error.response.data
+
+        }
+    }
+
+    static async getTemasForo(data){
+        try {
+
+            const res = await axios.get(url+"getTemas")
+            return res.data
+
+        } catch (error) {
+
+            return error.response.data
+
+        }
+    }
+
     static async addPuntajeCorte(data){
         try {
 

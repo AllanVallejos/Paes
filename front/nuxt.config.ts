@@ -4,8 +4,12 @@ export default defineNuxtConfig({
   build: {
     transpile: ['vuetify'],
   },
-  devtools: { 
-    enabled: true 
+  devtools: {
+    enabled: true,
+
+    timeline: {
+      enabled: true,
+    },
   },
 
   modules: [
@@ -27,4 +31,3 @@ export default defineNuxtConfig({
   },
 
 })
-

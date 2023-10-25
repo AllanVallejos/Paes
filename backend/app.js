@@ -30,6 +30,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use('/api', require('./routes/usuario'));
 app.use('/api', require('./routes/pregunta'));
+app.use('/api', require('./routes/foro'));
 
 // Middleware para Vue.js router modo history
 const history = require('connect-history-api-fallback');
