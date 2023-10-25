@@ -31,7 +31,6 @@
                     for(let temon of temas){
                         listaTemas.push(temon.nombreTema)  //Agregamos los nombres de los temas a la lista
                     }
-                    alert("llego")
                     if(listaTemas.includes(this.nombreTema)){ //Revisamos si el tema ya existe
                         const confirmation = confirm("El tema ya existe, ¿desea crearlo de todas formas?")
                         if(confirmation){ //El usuario confirma que desea crear el tema de todas formas
