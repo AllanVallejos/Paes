@@ -26,27 +26,33 @@
             },
             async crearTema(){
                 if (this.nombreTema != "") {    // Si la entrada es no vacia
-                    const temas = await API.getTemasForo() //Obtenemos los temas del foro ya creados
-                    const listaTemas = [] //Lista de nombres de temas
-                    for(let temon of temas){
-                        listaTemas.push(temon.nombreTema)  //Agregamos los nombres de los temas a la lista
-                    }
-                    if(listaTemas.includes(this.nombreTema)){ //Revisamos si el tema ya existe
-                        const confirmation = confirm("El tema ya existe, ¿desea crearlo de todas formas?")
-                        if(confirmation){ //El usuario confirma que desea crear el tema de todas formas
-                            await API.addTemaForo(
-                            {
-                                "nombreTema":this.nombreTema,
-                            })
-                        }
-                    }else{      //Si el tema no existe entonces se crea
-                        await API.addTemaForo(
+                    console.log(this.nombreTema)
+                    await API.addTemaForo(
                         {
                             "nombreTema":this.nombreTema,
                         })
-                    }
+                    alert("Tema creado")
+                    // const temas = await API.getTemasForo() //Obtenemos los temas del foro ya creados
+                    // const listaTemas = [] //Lista de nombres de temas
+                    // for(let temon of temas){
+                    //     listaTemas.push(temon.nombreTema)  //Agregamos los nombres de los temas a la lista
+                    // }
+                    // if(listaTemas.includes(this.nombreTema)){ //Revisamos si el tema ya existe
+                    //     const confirmation = confirm("El tema ya existe, ¿desea crearlo de todas formas?")
+                    //     if(confirmation){ //El usuario confirma que desea crear el tema de todas formas
+                    //         await API.addTemaForo(
+                    //         {
+                    //             "nombreTema":this.nombreTema,
+                    //         })
+                    //     }
+                    // }else{      //Si el tema no existe entonces se crea
+                    //     await API.addTemaForo(
+                    //     {
+                    //         "nombreTema":this.nombreTema,
+                    //     })
+                    //     alert("Tema creado")
+                    // }
                 }
-                
             },
         }
     };
