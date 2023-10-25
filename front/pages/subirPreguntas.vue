@@ -42,7 +42,7 @@
     </div>
     <button
       @click="agregarAlt"
-      v-if="alternativas.length < 5"
+      v-if="alternativas.length < 4"
       class="agregarAlt"
     >
       Agregar Alternativa
