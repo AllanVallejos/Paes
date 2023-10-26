@@ -6,34 +6,36 @@
 
             <h1 class="card-header" style="color:#c03a00e9;">Subir puntaje de corte</h1>
 
-            
-            <div class="relleno" style="padding-top: 2%;">
+            <div style="display: grid; place-items: center;">
 
-                <v-select v-model="seleccionarUniversidad" label="Universidad" :items="['Universidad de Talca', 'Universidad de Chile','Universidad Diego Portales']"
-                    variant="outlined"></v-select>
+                <div class="relleno" style="padding-top: 2%;">
 
-            </div>
+                    <v-select v-model="seleccionarUniversidad" label="Universidad"
+                        :items="['Universidad de Talca', 'Universidad de Chile', 'Universidad Diego Portales']"
+                        variant="outlined"></v-select>
 
-            <div class="relleno">
+                </div>
 
-                <v-select v-model="seleccionarCarrera" label="Carrera" :items="['Computación', 'Medicina','Electrica']"
-                    variant="outlined"></v-select>
+                <div class="relleno">
 
-            </div>
+                    <v-select v-model="seleccionarCarrera" label="Carrera" :items="['Computación', 'Medicina', 'Electrica']"
+                        variant="outlined"></v-select>
 
-            <div class="relleno">
+                </div>
 
-                <v-text-field v-model="corte" label="Puntaje" variant="outlined"></v-text-field>
- 
+                <div class="relleno">
+
+                    <v-text-field v-model="corte" label="Puntaje" variant="outlined"></v-text-field>
+
+                </div>
             </div>
 
             <div class="card-footer">
-                <button @click="publicarPuntajeCorte" class="botonDePublicar">
-                    Agregar puntaje
-                </button>
-            </div>
+                    <button @click="publicarPuntajeCorte" class="botonDePublicar">
+                        Agregar puntaje
+                    </button>
+                </div>
 
-          
         </div>
     </div>
 </template>
@@ -56,18 +58,19 @@ export default {
         publicarPuntajeCorte() {
             Swal.fire({
                 icon: 'success',
-                title: 'Pregunta publicada con éxito',
+                title: 'Puntaje subido con éxito',
                 text: '',
-                      })
-            this.crearPregunta()
+            })
+            this.crearPuntajeCorte()
+            this.$router.push({ path: "/subirPuntaje" });
         },
 
 
         async crearPuntajeCorte() {
             const respuesta = await API.addPuntajeCorte(
                 {
-                    "seleccionarUniversidad": this.seleccionarUniversidad,
-                    "seleccionarCarrera": this.seleccionarCarrera,
+                    "universidad": this.seleccionarUniversidad,
+                    "carrera": this.seleccionarCarrera,
                     "corte": this.corte,
                 }
             )
@@ -78,7 +81,6 @@ export default {
 </script>
 
 <style>
-
 .terminar {
     max-width: 600px;
     margin: 0 auto;
@@ -91,7 +93,7 @@ export default {
 .relleno {
     margin-bottom: 20px;
     width: 80%;
-    
+
     place-items: center;
 }
 
@@ -110,5 +112,4 @@ export default {
     font-weight: bold;
     color: #000000;
 }
-
 </style>

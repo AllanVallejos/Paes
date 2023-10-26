@@ -1,10 +1,10 @@
 <template>
-
     <body>
 
         <div style="display: grid; place-items: center; margin-top: 3%;">
 
-            <div class = "card text-bg-light" style = "border: 2px solid gray;  border-radius: 10px; overflow: hidden; width: 70%; height: 100%;  ">
+            <div class="card text-bg-light"
+                style="border: 2px solid gray;  border-radius: 10px; overflow: hidden; width: 70%; height: 100%;  ">
 
                 <div class="card-body">
 
@@ -18,10 +18,11 @@
 
                         <div style="margin-bottom: 4%;">
 
-                            <h3>{{ this.tienda.usuario.nombreUsuario}}</h3>
+                            <h3>Nombre: {{ this.todoTienda.usuario.nombreUsuario }}</h3>
 
-                            <p class="d-inline-flex gap-1" >
-                                <a class="btn btn-secondary" data-bs-toggle="collapse" href="#collapseName" role="button" aria-expanded="false" aria-controls="collapseName">
+                            <p class="d-inline-flex gap-1">
+                                <a class="btn btn-secondary" data-bs-toggle="collapse" href="#collapseName" role="button"
+                                    aria-expanded="false" aria-controls="collapseName">
                                     Cambiar nombre
                                 </a>
                             </p>
@@ -43,11 +44,12 @@
 
                         <div style="margin-bottom: 4%;">
 
-                            <h3>Correo electronico:</h3>
+                            <h3>Correo electronico: {{ this.todoTienda.usuario.email }}</h3>
 
                             <p class="d-inline-flex gap-1">
 
-                                <a class="btn btn-secondary" data-bs-toggle="collapse" href="#collapseHotmail" role="button" aria-expanded="false" aria-controls="collapseHotmail">
+                                <a class="btn btn-secondary" data-bs-toggle="collapse" href="#collapseHotmail" role="button"
+                                    aria-expanded="false" aria-controls="collapseHotmail">
                                     Cambiar correo
                                 </a>
 
@@ -74,7 +76,8 @@
 
                             <p class="d-inline-flex gap-1">
 
-                                <a class="btn btn-secondary" data-bs-toggle="collapse" href="#collapsePassword" role="button" aria-expanded="false" aria-controls="collapsePassword">
+                                <a class="btn btn-secondary" data-bs-toggle="collapse" href="#collapsePassword"
+                                    role="button" aria-expanded="false" aria-controls="collapsePassword">
                                     Cambiar contraseña
                                 </a>
 
@@ -110,106 +113,59 @@
         </div>
 
     </body>
-
 </template>
 
 <script>
-    import Swal from 'sweetalert2'
-    import API from '@/api';
-    import { tienda } from "../store/store"
+import Swal from 'sweetalert2'
+import API from '@/api';
+import { tienda } from "../store/store"
 
-    export default{
-        data () {
+export default {
+
+    data() {
         return {
             todoTienda: tienda(),
             nombre: '',
             correo: '',
-            contraseña:'',
+            contraseña: '',
 
         }
     },
+
     methods: {
         async editarPerfil() {
-            await API.validarUsuario({
-                "email": this.email,
-                "password": this.password
-            })
-            .then((result) => {
-                console.log(result)
-                if(result.nombreUsuario=="nombre"){
-                    
-                    Swal.fire({
+
+            const usuarioActualizado = {
+
+                _id: this.todoTienda.usuario._id,
+                nombreUsuario: this.nombre,
+                email: this.correo,
+                password: this.contraseña,
+
+            }
+            if (
+            usuarioActualizado.nombreUsuario !== "" ||
+            usuarioActualizado.email !== "" ||
+            usuarioActualizado.password !== ""
+            ){
+                Swal.fire({
                         icon: 'success',
-                        title: 'Login Valido',
+                        title: 'Actualización Valida',
                         text: '',
                     }    
                     )
-                    this.$router.push({ path: "/homeUsuario" }); //redireccion usuario
-
-                }
-                else{
-                    Swal.fire({
+            console.log(usuarioActualizado)
+            await API.editarUsuario(usuarioActualizado)
+            }else { 
+                Swal.fire({
                         icon: 'error',
-                        title: 'Oops...',
-                        text: 'Datos invalidos',
-                   
-                        })
-                }
-
-            })
-            .catch((err) => {
-                console.log(err)
-              
-            }); 
-     
+                        title: 'Actualización Invalida',
+                        text: '',
+                    }    
+                    )
+            }
         }
     }
 };
 
 </script>
-
-<!-- <script>
-
-    export default {
-        async asyncData({ result }) {
-  
-        const usuario = await usuario.findById(result);
-        return { usuario };
-    },
-        data() {
-
-            return {
-
-                nombre: '',
-                correo: '',
-                contraseña:'',
-
-            };
-        },
-
-        methods: {
-
-            editarPerfil() {
-
-                if (this.nombre === 'usuario') {
-
-                    alert('Este nombre ya esta en uso.');
-
-                } 
-
-                if (this.correo === 'correo@hotmail.com') {
-
-                    alert('Este correo ya esta en uso.');
-
-                }
-
-                if(this.contraseña === 'contraseña'){
-
-                    alert('Ya estas usando esta contraseña')
-
-                }
-            }
-        }
-    };
-
-</script> -->
