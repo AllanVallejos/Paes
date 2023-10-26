@@ -1,0 +1,128 @@
+Documento de Testeo Proyecto PAES semana 4
+
+RU01: Registrar Cuenta  
+    Requisitos de sistema: Cumplidos
+    Tarjeta de Volere: Cumplida
+    Atributos: Frontend
+        Problemas:
+            -Falta nombre de usuario
+    Atributos: Backend
+        Problemas:
+            -Falta nombre de usuario
+            -Falta universidad
+            -Falta lista de preguntas respondidas
+            -Falta lista historial de ensayos
+            -Array "ensayoPendiente" no corresponde al diseño
+    Validaciones: Incompletas 
+        Problemas:
+            -Falta validación de Nombre vacío
+            -Falta validación de Apellido vacío
+            -Falta validación de Email vacío
+            -Falta validación de Contraseña vacía
+            -Falta validación de Universidad vacía
+            -Falta validación de Carrera vacía
+            -Falta validación de largo y de mínimo en todos los inputs
+            -Falta validación de email valido
+            -Falta validación de email duplicado
+    Otros:
+        -Falta indicar que el programa es key sensitive, se podría validar que los emails sean solo en minúscula
+        -Inicio de sesión redirecciona a un home distinto al home principal
+        -Inicio de sesión redirecciona a un home con dos headers
+        -Header permite iniciar sesión estando ya logeado
+        -Header permite registrar cuenta estando ya logeado
+        -Header muestra funcionales correspondiente a distintos tipos de usuarios, se presume que no hay lógica de usuarios
+        -Usuario no puede cerrar sesión
+        -Usuario no eliminar su cuenta
+
+RU11: El usuario actualiza la información de su perfil
+    Requisitos de sistema: Completos
+    Tarjeta de Volere: Incompleta
+        Problemas:
+            -No cumple con la descripción de la tarjeta
+    Atributos: Frontend
+        Problemas:
+            -No muestra toda la información relevante de la cuenta
+    Atributos Backend: No aplica
+    Validaciones: Incompletas 
+        Problemas:
+            -No valida si el nuevo correo ya existe en la base de datos
+            -No valida si el nuevo correo es valido
+            -Falta validación de largo y de mínimo en todos los inputs
+    Otros:
+        -Footer se sobrepone al diseño
+
+RU14: El Administrador sube una pregunta de ensayo PAES
+    Requisitos de sistema: Completos
+    Tarjeta de Volere: Cumplida
+    Atributos Frontend: Correctos
+    Atributos Backend: Incompletos
+        Problemas:
+            -Falta Administrador que subió la pregunta
+            -"respuestaUsuario" no corresponde al diseño
+    Validaciones:
+        Problemas:
+            -Falta validación de campos vacíos
+            -Falta validación de largo y de mínimo en todos los inputs
+
+    Otros:
+        -No se limpia el form luego de agregar una pregunta
+        -Campo para agregar alternativa correcta no se ve
+        -El botón agregar alternativa y eliminar es una distracción, ya que todas las preguntas deberían llevar el mismo numero de alternativas
+        -En la alternativa correcta permite elegir la e
+
+RU02: El usuario realiza un ensayo PAES
+    Requisitos de sistema: Incompletos
+        Problemas:
+            -Falta RS013: Obtener preguntas que ya han sido respondidas por el usuario
+            -Falta RS014: Obtener preguntas aleatorias correspondientes a la categoría seleccionada y descartar las que ya han sido respondidas, hasta completar la cantidad de preguntas
+            -Falta RS023: Calcular puntaje obtenido en el ensayo PAES.
+	        -Falta RS024: Mostrar puntaje obtenido en el ensayo PAES.
+	        -Falta RS025: Mostrar corrección del ensayo PAES.
+            -Falta RS026: Mostrar opción “Comparar puntaje”.
+	        -Falta RS027: Seleccionar opción
+            -Falta RS028: Si elige “Comparar puntaje”, ejecutar RU03
+    Tarjeta de Volere: Cumplida
+    Atributos Frontend:
+        Problemas:
+            -Falta mostrar el puntaje obtenido
+            -Falta mostrar la corrección del ensayo
+            -Falta mostrar la opción de comparar puntaje
+    Atributos Backend:
+        Problemas:
+            -NO EXISTE, NO SE PUEDE TESTEAR, debería haber todo un schema para el ensayo
+    Validaciones:
+        Problemas:
+            -El mensaje para validar categoría vacía no da información relevante
+            -Si selecciono un tipo en ensayo en la primera categoría y luego selecciono un tipo de ensayo en la segunda categoría y un numero de preguntas para la segunda categoría, Salta mensaje de error "Falta escoger numero de preguntas", y no puedo desseleccionar el tipo de la primera categoría
+    Otros:
+        -Es difícil seleccionar una alternativa, ya que el radio del botón esta corrido
+        -Luego de parar el ensayo el tiempo sigue corriendo, En mi opinion debería redirigir al home en ese momento
+        -Hay ensayos que no muestran preguntas
+        -No funciona botón "Terminar Ensayo"
+
+RU12: El Usuario retoma un ensayo sin terminar
+    No existe en el front, no se puede testear
+
+RU19: El administrador registra puntaje de corte de una carrera y universidad específica
+    Requisitos de sistema: Incompletos
+        Problemas:
+            - Falta RS005: Mostrar listado de carreras para la universidad seleccionada
+    Tarjeta de Volere: Cumple
+    Atributos Frontend: Correctos
+    Atributos Backend: Incompletos
+        Problemas:
+            -Faltan puntaje de ponderación en el Schema (Pero esto en realidad no importa)
+    Validaciones: Incompletas
+        Problemas:
+            -Falta validación de campos vacíos
+            -Falta validación de mínimos y máximos
+            -Falta validación de duplicados
+    Otros:
+        -Falta limpiar form luego de agregar puntaje de corte (Deseable)
+
+
+Otros: 
+    -Botones del footer no funcionan
+    -Apretar el logo de la página no redirecciona al home
+
+
