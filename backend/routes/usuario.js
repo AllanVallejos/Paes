@@ -19,7 +19,7 @@ router.put('/updateEnsayos', async(req, res) => {
   }
 );
 
-router.post('/addusuario', async(req, res) => {
+router.post('/addUsuario', async(req, res) => {
   const body = req.body;  
  
   const usuario = usuarioSchema(body)       
@@ -33,9 +33,48 @@ router.post('/addusuario', async(req, res) => {
   }
 );
 
+//obtener numero de usuarios
+router.get('/getNumeroUsuarios', async(req, res) => {
+  await usuarioSchema.countDocuments().then((result) => {
+    res.json(result)
+  })
+  .catch((err) => {
+    console.log(err)
+    res.json(err)
+  }); 
+  }
+);
+
+//verificar si un userName ya existe
+router.post('/verificarUserName', async(req, res) => {
+  const userName = req.body.userName;
+  const existe = await usuarioSchema.exists({userName:userName}).then((result) => {
+    res.json(result)
+  })
+  .catch((err) => {
+    console.log(err)
+    res.json(err)
+  }); 
+  }
+);
+
+//verificar si un email ya existe
+router.post('/verificarEmail', async(req, res) => {
+  const email = req.body.email;
+  await usuarioSchema.findOne({email:email}).then((result) => {
+    res.json(result)
+  })
+  .catch((err) => {
+    console.log(err)
+    res.json(err)
+  });
+  }
+);
+
+
 router.put('/editarUsuario', async (req, res) => {
   const _id = req.body._id;
-  const nombreUsuario = req.body.nombreUsuario;
+  const nombreUsuario = req.body.nombre;
   const email = req.body.email;
   const password = req.body.password;
 

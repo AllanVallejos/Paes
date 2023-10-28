@@ -3,29 +3,12 @@ Documento de Testeo Proyecto PAES semana 4
 RU01: Registrar Cuenta  
     Requisitos de sistema: Cumplidos
     Tarjeta de Volere: Cumplida
-    Atributos: Frontend
+    Atributos Frontend: Completos
+    Atributos Backend:
         Problemas:
-            -Falta nombre de usuario
-    Atributos: Backend
-        Problemas:
-            -Falta nombre de usuario
-            -Falta universidad
-            -Falta lista de preguntas respondidas
-            -Falta lista historial de ensayos
             -Array "ensayoPendiente" no corresponde al diseño
-    Validaciones: Incompletas 
-        Problemas:
-            -Falta validación de Nombre vacío
-            -Falta validación de Apellido vacío
-            -Falta validación de Email vacío
-            -Falta validación de Contraseña vacía
-            -Falta validación de Universidad vacía
-            -Falta validación de Carrera vacía
-            -Falta validación de largo y de mínimo en todos los inputs
-            -Falta validación de email valido
-            -Falta validación de email duplicado
+    Validaciones: Completas
     Otros:
-        -Falta indicar que el programa es key sensitive, se podría validar que los emails sean solo en minúscula
         -Inicio de sesión redirecciona a un home distinto al home principal
         -Inicio de sesión redirecciona a un home con dos headers
         -Header permite iniciar sesión estando ya logeado

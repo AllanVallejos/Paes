@@ -18,26 +18,19 @@ export default class API {
 
     static async addTemaForo(data){
         try {
-
             const res = await axios.post(url+"addTemaForo",data)
             return res.data
-
         } catch (error) {
             return error.response.data
-
         }
     }
 
     static async getTemasForo(data){
         try {
-
             const res = await axios.get(url+"getTemas")
             return res.data
-
         } catch (error) {
-
             return error.response.data
-
         }
     }
 
@@ -98,16 +91,39 @@ export default class API {
         }
     }
 
-    static async addusuario(data) {
+    static async addUsuario(data) {
         try {
-
-            const res = await axios.post(url + "addusuario", data)
+            const res = await axios.post(url + "addUsuario", data)
             return res.data
-
         } catch (error) {
-
             return error.response.data
+        }
+    }
 
+    static async getNumeroUsuarios() {
+        try {
+            const res = await axios.get(url + "getNumeroUsuarios")
+            return res.data
+        } catch (error) {
+            return error.response.data
+        }
+    }
+
+    static async verificarUserName(data) {
+        try {
+            const res = await axios.post(url + "verificarUserName", data)
+            return res.data
+        } catch (error) {
+            return error.response.data
+        }
+    }
+
+    static async verificarEmail(data) {
+        try {
+            const res = await axios.post(url + "verificarEmail", data)
+            return res.data
+        } catch (error) {
+            return error.response.data
         }
     }
 
