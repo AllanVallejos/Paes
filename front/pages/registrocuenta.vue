@@ -1,67 +1,43 @@
 <template>
-  <div style="font-family: Arial, sans-serif;
-      background-image: url('/fondo6.jpg'); 
-      background-size: cover; 
-      background-repeat: no-repeat; 
-      background-attachment: fixed; 
-      background-color: #f4f4f4;
+  <div class="divPadre">
+    <form id="registro-form">
+        <h2>Registro de cuenta</h2>
 
-      display: flex;
-      justify-content: flex-end ;
-      align-items: center;">
-    <form id="registro-form" style="background-color: #fff;
-      padding: 10px;
-      padding-right: 50px;
-      padding-left: 40px;
-      border-radius: 5px;
-      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-      width: 300px;
-      margin-right:30px;
-      margin-left: 0 auto; 
-      margin-bottom: 100px;">
-      <h2 style="text-align: center;
-      font-size: 30px;
-      color: #000000;">
-      Registro de cuenta</h2>
+        <label for="nombre">Nombre:</label>
+        <input v-model="nombre" type="text" id="nombre" name="nombre" required="required" />
 
-    <label for="nombre" style="display: block;  margin-bottom: 10px;">Nombre:</label>
-    <input v-model="nombre" type="text" id="nombre" name="nombre" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px;"/>
+        <label for="primerApellido">Primer Apellido:</label>
+        <input v-model="primerApellido"  type="text" id="primerApellido" name="primerApellido" required:true/>
 
-    <label for="primerApellido" style="display: block;  margin-bottom: 10px;">Primer Apellido:</label>
-    <input v-model="primerApellido"  type="text" id="primerApellido" name="primerApellido" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px;"/>
+        <label for="segundoApellido">Segundo Apellido:</label>
+        <input required v-model="segundoApellido" type="text" id="segundoApellido" name="segundoApellido"/>
 
-    <label for="segundoApellido" style="display: block;  margin-bottom: 10px;">Segundo Apellido:</label>
-    <input v-model="segundoApellido" type="text" id="segundoApellido" name="segundoApellido" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px;"/>
+        <label for="userName">Nombre de Usuario:</label>
+        <input v-model="userName" type="text" id="userName" name="userName" required />
 
-    <label for="userName" style="display: block;  margin-bottom: 10px;">Nombre de Usuario:</label>
-    <input v-model="userName" type="text" id="userName" name="userName" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px;"/>
+        <label for="email">Correo Electrónico:</label>
+        <input v-model="email" type="email" id="email" name="email" required/>
 
-    <label for="email" style="display: block;  margin-bottom: 10px;">Correo Electrónico:</label>
-    <input v-model="email" type="email" id="email" name="email" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px;"/>
+        <label for="password">Contraseña:</label>
+        <input v-model="password" type="password" id="password" name="password" required/>
 
-    <label for="password" style="display: block;  margin-bottom: 10px;">Contraseña:</label>
-    <input v-model="password" type="password" id="password" name="password" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px;"/>
+        <label for="repetirPassword">Repetir Contraseña:</label>
+        <input v-model="repetirPassword" type="password" id="repetirPassword" name="repetirPassword" required/>
 
-      
-    <label for="universidad" style="display: block;  margin-bottom: 10px;">Universidad de preferencia:</label>
-    <select v-model="universidad" id="universidad" name="universidad" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px;">
-    <option value="uni1">Universidad de Talca</option>
-    <option value="uni2">Universidad de Chile</option>
-    <option value="uni3">Universidad Diego Portales</option>
-    </select>
+        <label for="universidad">Universidad de preferencia:</label>
+        <select v-model="universidad" id="universidad" name="universidad" required>
+            <option value="uni1">Universidad de Talca</option>
+            <option value="uni2">Universidad de Chile</option>
+            <option value="uni3">Universidad Diego Portales</option>
+        </select>
 
-    <label for="carrera" style="display: block;  margin-bottom: 10px;">Carrera:</label>
-    <select v-model="carrera" id="carrera" name="carrera" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px;">
-    <option value="carrera1">Carrera 1</option>
-    <option value="carrera2">Carrera 2</option>
-    <option value="carrera3">Carrera 3</option>
-    </select>
-    <v-btn @click="crear" depressed color="primary">
-        Crear cuenta
-    </v-btn>
-   
-
-     
+        <label for="carrera">Carrera:</label>
+        <select v-model="carrera" id="carrera" name="carrera" required>
+            <option value="carrera1">Carrera 1</option>
+            <option value="carrera2">Carrera 2</option>
+            <option value="carrera3">Carrera 3</option>
+        </select>
+        <button type="submit" @click="crear()">Crear cuenta</button>
     </form>
   </div>
 
@@ -81,6 +57,7 @@
             userName: "",
             email: "", 
             password: "",
+            repetirPassword: "",
             carrera: "", 
             universidad: "",
             tipoUsuario: "USUARIO",
@@ -89,18 +66,13 @@
       },
       methods: {
   
-          crear() {
-          this.crearUsuario()
-          },
-          async crearUsuario(){
-            const existeEmail = await API.verificarEmail({"email":this.email})
+          async crear() {
+            const existeEmail = await API.verificarEmail({"email":this.email.toLowerCase()})
             const numeroDeUsuarios = await API.getNumeroUsuarios()
-            const existeUsuario = await API.verificarUserName({"userName": this.userName})
-            const validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
-         
+            const existeUsuario = await API.verificarUserName({"userName": this.userName.toLowerCase()})
             let todoBien = true
-            //validar nombre vacío
-            if(this.nombre == ""){
+             //validar nombre vacío
+             if(this.nombre == ""){
               Swal.fire({
                 icon: 'error',
                 title: 'Nombre vacío',
@@ -216,17 +188,24 @@
               })
                 todoBien = false
             }
-            //validar que el email sea correcto
-            if(!this.correo.match(validRegex)){
+            //validar que el password y la confirmación sean iguales
+            if(this.password != this.repetirPassword){
               Swal.fire({
                 icon: 'error',
-                title: 'Email inválido',
-                text: 'Ingrese un email válido',
+                title: 'Contraseñas no coinciden',
+                text: 'Ingrese contraseñas iguales',
               })
                 todoBien = false
             }
 
             if (todoBien){
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Usuario creado',
+                    text: 'Usuario creado con éxito',
+                  })
+                  
+                this.$router.push({ path: "/" });
                 await API.addUsuario({ 
                     "nombre":this.nombre,
                     "apellidoPaterno": this.primerApellido,
@@ -239,32 +218,68 @@
                     "tipoUsuario": this.tipoUsuario,
                     "idUsuario": numeroDeUsuarios+1
                 })
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Usuario creado',
-                    text: 'Usuario creado con éxito',
-                  })
-                  this.$router.push({ path: "/app" });
+            
             }
-          },
-  }
+          }
+        }
   };
 </script>
 
-<style>
+<style scoped>
 
-  
+    div .divPadre{
+        background-image: url('/fondo6.jpg'); 
+        background-size: cover; 
+        background-attachment: fixed; 
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    form {
+        background-color: #fff;
+        padding: 10px;
+        padding-right: 40px;
+        padding-left: 40px;
+        border-radius: 5px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        width: 350px;
+        margin-right:30px;
+        margin-bottom: 100px;
+        margin-top: 20px;
+    }
 
   button[type="submit"] {
-      background-color: #000000;
-      color: #fff;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 5px;
-      cursor: pointer;
+        background-color: #008CBA;
+        color: #fff;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-bottom: 10px;
+        width: 100%;
   }
 
   button[type="submit"]:hover {
      background-color: #0056b3;
+  }
+  input[type="text"], input[type="email"], input[type="password"], select {
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      margin-bottom: 15px;
+      width: 100%;
+  }
+  select {
+      width: 100%;
+  }
+
+  label{
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  h2{
+    text-align: center;
+    margin-bottom: 20px;
   }
 </style>
