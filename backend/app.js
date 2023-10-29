@@ -30,6 +30,7 @@ app.use('/api', require('./routes/usuario'));
 app.use('/api', require('./routes/pregunta'));
 app.use('/api', require('./routes/foro'));
 app.use('/api', require('./routes/puntajeCorte'));
+app.use('/api', require('./routes/porcentajePonderacion'));
 
 // Middleware para Vue.js router modo history
 const history = require('connect-history-api-fallback');

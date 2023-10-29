@@ -7,8 +7,8 @@ import ponderacionSchema from '../models/porcentajePonderacion';
 router.post('/addporcentajePonderacion', async (req, res) => {
 	const body = req.body;
 
-	const corte = ponderacionSchema(body)
-	await corte.save()
+	const ponderacion = ponderacionSchema(body)
+	await ponderacion.save()
 		.then((result) => {
 			res.json(result)
 

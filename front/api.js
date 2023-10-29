@@ -150,4 +150,14 @@ export default class API {
 
         }
     }
+
+    static async addporcentajePonderacion(data) {
+        try {
+            const res = await axios.post(url + "addporcentajePonderacion", data)
+            return res.data
+
+        } catch (error) {
+            return error.response.data
+        }
+    }
 }

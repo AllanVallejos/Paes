@@ -15,6 +15,6 @@ const ponderacionSchema = new Schema({
 },{ versionKey: false }
 );
 
-const puntajeCorte = mongoose.model('porcentajePonderacion', corteSchema);
+const porcentajePonderacion = mongoose.model('porcentajePonderacion', ponderacionSchema);
 
-export default puntajeCorte;
+export default porcentajePonderacion;
