@@ -10,7 +10,8 @@ const ponderacionSchema = new Schema({
     comp_lectora: Number,
     mat_m1: Number,
     mat_m2: Number,
-    ciencias: Number
+    ciencias: Number,
+    historia: Number
 
 },{ versionKey: false }
 );

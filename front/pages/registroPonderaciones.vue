@@ -93,7 +93,7 @@
         
         
     <div class="terminar">
-      <button @click="publicarPregunta" class="botonDePublicar">
+      <button @click="publicarPonderacion" class="botonDePublicar">
         Publicar Ponderaciones
       </button>
     </div>
@@ -130,33 +130,28 @@
         this.alternativas.push({ text: "" });
       }
     },
-    quitarAlt(i) {
-      this.alternativas.splice(i, 1);
-    },
-    publicarPregunta() {
+    publicarPonderacion() {
       Swal.fire({
             icon: 'success',
-            title: 'Respuesta subida con éxito',
+            title: 'Ponderación subida con éxito',
             text: '',
                         })
-      this.crearPregunta()
-      this.$router.push({ path: "/ponderacioness" });
+      this.crearPonderacion()
+      this.$router.push({ path: "/registroPonderaciones" });
     },
-    async crearPregunta(){
-      const respuesta= await API.addpregunta(
+    async crearPonderacion(){
+      const respuesta= await API.addporcentajePonderacion(
         {
-          "universidad":this.seleccionaruniversidad,
+          "universidad":this.seleccionarUniversidad,
           "carrera": this.seleccionarCarrera,
           "nem": this.nem,
-          "ranking":this.ranking,
-          "comprensionLectora":this.comprensionLectora,
-          "competenciaMatematica1":this.competenciaMatematica1,
-          "competenciaMatematica2":this.competenciaMatematica2,
+          "p_ranking":this.ranking,
+          "comp_lectora":this.comprensionLectora,
+          "mat_m1":this.competenciaMatematica1,
+          "mat_m2":this.competenciaMatematica2,
           "ciencias":this.ciencias,
           "historia":this.historia,
 
-
-          
         }
       )
   
