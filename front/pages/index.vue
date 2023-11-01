@@ -1,9 +1,6 @@
 <template>
 
     <body>
-        <headerr />
-       
-        <footerr />
         
     </body>
 
