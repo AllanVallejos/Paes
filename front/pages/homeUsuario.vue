@@ -14,6 +14,9 @@
               <li class="nav-item">
                 <NuxtLink class="nav-link active" to="/ensayo">Ensayos</NuxtLink>
               </li>
+              <li class="nav-item">
+                <NuxtLink class="nav-link active" to="/retomarEnsayo">Retomar Ensayo</NuxtLink>
+              </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Mi Cuenta</a>
                 <ul class="dropdown-menu">

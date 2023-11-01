@@ -143,6 +143,7 @@ export default {
                     .then((result) => {
                         console.log(result);
                         this.ensayo = result
+                        console.log(this.ensayo);
                     })
 
                     .catch((err) => {

@@ -30,21 +30,22 @@ import Swal from 'sweetalert2'
 import API from '@/api';
 
 import { tienda } from '~/store/store';
+import pregunta from "./pregunta.vue"
 
 export default {
 
     data() {
         
         return {
-            ensayo: this.todoTienda.usuario.ensayoPendiente,
+            ensayo: [],
             arrayAlternativas: [],
             arrayPreguntas: [],
             respuestaUsuario: '',
             todoTienda: tienda(),
-            n: 0,
+            n: 7,
             respuestas: [],
             alternativas: ['Alternativa 1', 'Alternativa 2', 'Alternativa 3', 'Alternativa 4'],
-            tiempoRestante: 0,
+            tiempoRestante: 4000,
 
         };
     },
@@ -63,9 +64,8 @@ export default {
 
     methods: {
         inicioEnsayo() {
-
             this.Asignatura = this.todoTienda.tipo
-            this.tiempoRestante = this.n * 120
+            this.tiempoRestante = 4000
 
             console.log(this.n)
 
@@ -119,7 +119,10 @@ export default {
 
             }
         },
-
+        cargarPreguntas(){
+            /* No carga el programa el ensayo */
+            this.ensayo=this.todoTienda.usuario.ensayoPendiente
+        },
         actualizarTiempoRestante() {
 
             if (this.tiempoRestante > 0) {
@@ -136,8 +139,12 @@ export default {
     },
 
     mounted() {
+        /* POR ALGUNA RAZON EL PROGRAMA NO ESTÁ CARGANDO LAS PREGUNTAS QUE ESTÁN EN THIS.ENSAYO */
         this.inicioEnsayo();
         setInterval(this.actualizarTiempoRestante, 1000);
+        this.cargarPreguntas();
+        console.log(this.ensayo)
+        console.log(this.todoTienda.usuario.ensayoPendiente)
     },
 };
 

@@ -11,6 +11,7 @@ const usuarioSchema = new Schema({
     id: Number,
     //historialEnsayos: {type: Array, default: []},
     ensayoPendiente: Array
+    
 
 }, { versionKey: false }
 );
