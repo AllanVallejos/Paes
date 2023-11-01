@@ -1,10 +1,15 @@
 import { NavbarHeaderBasico } from '../.nuxt/components';
 <template>
   <div>
-    <v-app>
-        <slot />
-    </v-app>
-    
+        <v-app>
+            <headerr />
+
+            <div style="min-height: 50vh; position: relative; margin-bottom: 50px;">
+
+                <slot />
+            </div>
+            <footerr />
+        </v-app>
     </div>
 </template>
 
