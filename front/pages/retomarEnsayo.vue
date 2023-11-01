@@ -1,57 +1,162 @@
 <template>
-    
-  </template>
-  
-  <script>
-      import API from '@/api';
-      export default {
-          
-          name: 'Ensayos',
-          data() {
-              return {
-                  temas : [],
-              };
-          },
-          async mounted() {
-              this.temas = await API.getEnsayos()
-          }
-      };
-  </script>
-  
-  <style scoped>
-      .divPadre {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          padding-left: 2%;
-          padding-right: 2%;
-          margin-bottom: 50px;
-      }
-      .divPadre h1 {
-          margin-bottom: 50px;
-          margin-top: 50px;
-      }
-      .divPadre h2 {
-          margin-bottom: 50px;
-      }
-      .divPadre .listaTemas {
-          background-color: #c03a00e9;
-          border-radius: 5px;
-          padding: 10px;
-          margin-bottom: 15px;
-          color: aliceblue;
-          display: flex;
-      }
-      .divPadre .listaTemas img {
-          margin-right: 10px;
-          width: 50px;
-          height: 50px;
-      }
-      .divPadre h3 {
-          color: aliceblue;
-      }
-      .tema {
-          padding-top: 8px;
-      }
-  </style>
-  
+    <div class="row">
+
+        <h2> Ensayo</h2>
+        <!-- Hay un error en pregunta @alternativaactualizada, no estoy seguro de que es -->
+        <div class="col-10" id="contenedor">
+            <pregunta @alternativaActualizada='actualizacionPregunta' :pregunta="question" :indice="index"
+                v-for="(question, index) in ensayo" />
+        </div>
+
+        <div class="col-2" style="background-color: white;">
+
+            <div class="sticky-text" style="text-align: center;">
+                <h3 style="padding-bottom: 5%;">Tiempo restante: <br> {{ tiempoRestanteFormateado }}</h3>
+
+                <button class="btn btn-warning" @click="pararEnsayo">Parar Ensayo</button>
+                <br>
+                <button class="btn btn-danger" @click="terminarEnsayo">Terminar Ensayo</button>
+
+            </div>
+
+        </div>
+
+    </div>
+</template>
+
+<script>
+
+import Swal from 'sweetalert2'
+import API from '@/api';
+
+import { tienda } from '~/store/store';
+
+export default {
+
+    data() {
+        
+        return {
+            ensayo: this.todoTienda.usuario.ensayoPendiente,
+            arrayAlternativas: [],
+            arrayPreguntas: [],
+            respuestaUsuario: '',
+            todoTienda: tienda(),
+            n: 0,
+            respuestas: [],
+            alternativas: ['Alternativa 1', 'Alternativa 2', 'Alternativa 3', 'Alternativa 4'],
+            tiempoRestante: 0,
+
+        };
+    },
+
+    computed: {
+
+        tiempoRestanteFormateado() {
+
+            const horas = Math.floor(this.tiempoRestante / 3600);
+            const minutos = Math.floor((this.tiempoRestante % 3600) / 60);
+            const segundos = this.tiempoRestante % 60;
+            return `${horas}h ${minutos}m ${segundos}s`;
+
+        },
+    },
+
+    methods: {
+        inicioEnsayo() {
+
+            this.Asignatura = this.todoTienda.tipo
+            this.tiempoRestante = this.n * 120
+
+            console.log(this.n)
+
+            this.respuestas = Array(this.n).fill('')
+        },
+
+        actualizacionPregunta() {
+
+            console.log(this.ensayo)
+
+        },
+
+        terminarEnsayo() {
+
+            const preguntasSinResponder = this.respuestas.filter(respuesta => respuesta === '');
+
+            /* if (preguntasSinResponder.length === 0) {
+                alert("verificación completada, todo respondido");
+
+            } else {
+                alert("faltan preguntas por responder");
+            } */
+        },
+
+        async pararEnsayo() {
+            const tiempo = this.tiempoRestante
+            const idusuario = this.todoTienda.usuario._id
+            const ensayo = this.ensayo
+            try {
+                await API.updateEnsayos({ "_id": idusuario, "ensayoPendiente": ensayo }).then((result) => {
+                    console.log(result);
+                    console.log(this.todoTienda.usuario._id)
+                    this.ensayo = result
+
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'Se ha detenido el examen',
+                        text: 'Queda:'+ this.tiempoRestanteFormateado,
+                    })
+                })
+
+                    .catch((err) => {
+
+                        console.log(err)
+
+                    });
+            }
+            catch (error) {
+
+                console.error(error);
+
+            }
+        },
+
+        actualizarTiempoRestante() {
+
+            if (this.tiempoRestante > 0) {
+
+                this.tiempoRestante--;
+
+            } else {
+
+                alert("Se ha acabado el tiempo")
+
+            }
+        },
+
+    },
+
+    mounted() {
+        this.inicioEnsayo();
+        setInterval(this.actualizarTiempoRestante, 1000);
+    },
+};
+
+</script>
+
+<style scoped>
+.sticky-text {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 20px;
+    background-color: white;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+#contenedor {
+    display: grid;
+    position: relative;
+}
+</style>
+
+~/store
