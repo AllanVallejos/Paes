@@ -31,10 +31,10 @@
             </div>
 
             <div class="card-footer">
-                    <button @click="publicarPuntajeCorte" class="botonDePublicar">
-                        Agregar puntaje
-                    </button>
-                </div>
+                <button @click="publicarPuntajeCorte" class="botonDePublicar">
+                    Agregar puntaje
+                </button>
+            </div>
 
         </div>
     </div>
@@ -46,6 +46,7 @@ import API from '@/api';
 export default {
 
     data() {
+
         return {
             seleccionarUniversidad: "", // Para almacenar la categoría seleccionada
             seleccionarCarrera: "", // Texto de la pregunta
@@ -53,18 +54,33 @@ export default {
             confirmationMessage: "", // Mensaje de confirmación
         };
     },
+
     methods: {
 
         publicarPuntajeCorte() {
-            Swal.fire({
-                icon: 'success',
-                title: 'Puntaje subido con éxito',
-                text: '',
-            })
-            this.crearPuntajeCorte()
-            this.$router.push({ path: "/subirPuntaje" });
-        },
 
+            const numCorte = parseFloat(this.corte);
+
+            if (!isNaN(numCorte) && numCorte >= 0 && numCorte <= 1000) {
+
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Puntaje subido con éxito',
+                    text: '',
+                });
+
+                this.crearPuntajeCorte();
+                this.$router.push({ path: "/subirPuntaje" });
+
+            } else {
+
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error en el puntaje',
+                    text: 'El puntaje debe ser un número entre 0 y 1000.',
+                });
+            }
+        },
 
         async crearPuntajeCorte() {
             const respuesta = await API.addPuntajeCorte(

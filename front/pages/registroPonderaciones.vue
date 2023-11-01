@@ -146,8 +146,6 @@
           "competenciaMatematica2":this.competenciaMatematica2,
           "ciencias":this.ciencias,
           "historia":this.historia,
-
-
           
         }
       )

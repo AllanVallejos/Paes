@@ -7,11 +7,11 @@
 
             <div class="container text-center">
 
-                <div class="row align-items-center" style="width: 100%;">
+                <div class="row align-items-center" style="width: 100%; height: 100%;">
 
                     <div class="col">
 
-                        <div class="card text-bg-light mb-4" style="min-width: 100%; height: 70%; border: 1px solid #000;">
+                        <div class="carta">
 
                             <div class="card-header" style="color: #c03a00e9;">
                                 <h3>Matematicas</h3>
@@ -68,7 +68,7 @@
 
                     <div class="col">
 
-                        <div class="card text-bg-light mb-4" style="min-width: 100%; height: 70%; border: 1px solid #000;">
+                        <div class="carta">
 
                             <div class="card-header" style="color: #c03a00e9;">
                                 <h3>Comprension lectora</h3>
@@ -118,7 +118,8 @@
 
                     <div class="col">
 
-                        <div class="card text-bg-light mb-4" style="min-width: 100%; height: 70%; border: 1px solid #000;">
+                        <div class="carta">
+
 
                             <div class="card-header" style="color: #c03a00e9;">
                                 <h3>Ciencias</h3>
@@ -173,7 +174,8 @@
 
                     <div class="col">
 
-                        <div class="card text-bg-light mb-4" style="min-width: 100%; height: 70%; border: 1px solid #000;">
+                        <div class="carta">
+
 
                             <div class="card-header" style="color: #c03a00e9;">
                                 <h3>Historia y Ciencias Sociales</h3>
@@ -181,7 +183,7 @@
 
                             <div class="card-body">
 
-                                <p class="card-text">En esta evaluacion se busca identificar y comprender momentos
+                                <p>En esta evaluacion se busca identificar y comprender momentos
                                     significativos en la historia del país. Esta prueba busca medir el conocimiento de
                                     eventos,
                                     fechas y figuras históricas que han tenido un impacto en la evolución de Chile a lo
@@ -321,4 +323,33 @@ export default {
     }
 };
 
-</script>../store
+</script>
+
+<style scoped>
+
+.carta{
+
+    border: 0.5px solid #c03a00e9;
+    border-radius: 12px;
+    padding: 5%;
+
+    min-height: 70%;
+    max-height: 90%;
+
+    min-width: 300px;
+
+} 
+
+
+.carta p{
+
+    text-align: justify;
+}
+
+.carta h3{
+
+    text-align: center;
+}
+
+
+</style>
