@@ -11,7 +11,7 @@
 
                     <div class="col">
 
-                        <div class="card text-bg-light mb-4" style="min-width: 80%; min-height: 48vh; max-width: 100%;">
+                        <div class="card text-bg-light mb-4" style="min-width: 100%; height: 70%; border: 1px solid #000;">
 
                             <div class="card-header" style="color: #c03a00e9;">
                                 <h3>Matematicas</h3>
@@ -68,7 +68,7 @@
 
                     <div class="col">
 
-                        <div class="card text-bg-light mb-4" style="min-width: 100%; min-height: 48vh;">
+                        <div class="card text-bg-light mb-4" style="min-width: 100%; height: 70%; border: 1px solid #000;">
 
                             <div class="card-header" style="color: #c03a00e9;">
                                 <h3>Comprension lectora</h3>
@@ -93,9 +93,8 @@
 
                                     <li class="list-group-item">
 
-                                        <select class="form-select" v-model="pComprension"
+                                        <select placeholder="Numero de preguntas" class="form-select" v-model="pComprension"
                                             aria-label="Default select example">
-                                            <option selected>Numero de preguntas</option>
                                             <option value=25>25</option>
                                             <option value=45>45</option>
                                             <option value=65>65</option>
@@ -119,7 +118,7 @@
 
                     <div class="col">
 
-                        <div class="card text-bg-light mb-4" style="min-width: 100%; min-height: 48vh;">
+                        <div class="card text-bg-light mb-4" style="min-width: 100%; height: 70%; border: 1px solid #000;">
 
                             <div class="card-header" style="color: #c03a00e9;">
                                 <h3>Ciencias</h3>
@@ -138,7 +137,7 @@
                                     <li class="list-group-item">
 
                                         <select class="form-select" v-model="Ciencias" aria-label="Default select example">
-                                            <option selected-disable>Subtema</option>
+                                            <option disabled selected>Selecciona una opción</option>
                                             <option value="CB">Biologia</option>
                                             <option value="CF">Fisica</option>
                                             <option value="CQ">Quimica</option>
@@ -174,7 +173,7 @@
 
                     <div class="col">
 
-                        <div class="card text-bg-light mb-4" style="min-width: 100%; min-height: 48vh;">
+                        <div class="card text-bg-light mb-4" style="min-width: 100%; height: 70%; border: 1px solid #000;">
 
                             <div class="card-header" style="color: #c03a00e9;">
                                 <h3>Historia y Ciencias Sociales</h3>
@@ -243,7 +242,9 @@ export default {
             asignatura: '',
 
             Matematicas: '',
+            Historia: '',
             Ciencias: '',
+            Comprension: '',
 
             pComprension: 0,
             pMatematicas: 0,
