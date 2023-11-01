@@ -93,7 +93,7 @@
         
         
     <div class="terminar">
-      <button @click="publicarPregunta" class="botonDePublicar">
+      <button @click="publicarPonderacion" class="botonDePublicar">
         Publicar Ponderaciones
       </button>
     </div>
@@ -124,26 +124,18 @@
     };
   },
   methods: {
-    agregarAlt() {
-      if (this.alternativas.length < 5) {
-        //Hasta 5 alternativas
-        this.alternativas.push({ text: "" });
-      }
-    },
-    quitarAlt(i) {
-      this.alternativas.splice(i, 1);
-    },
-    publicarPregunta() {
+    
+    publicarPonderacion() {
       Swal.fire({
             icon: 'success',
-            title: 'Respuesta subida con éxito',
+            title: 'Ponderacion subida con éxito',
             text: '',
                         })
       this.crearPregunta()
       this.$router.push({ path: "/ponderacioness" });
     },
     async crearPregunta(){
-      const respuesta= await API.addpregunta(
+      const respuesta= await API.addponderacion(
         {
           "universidad":this.seleccionaruniversidad,
           "carrera": this.seleccionarCarrera,

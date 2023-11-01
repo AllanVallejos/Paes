@@ -24,7 +24,7 @@ import { ServerPlaceholder, NuxtLink } from '../.nuxt/components';
                         <li class="nav-item"><NuxtLink class="nav-link active" to="/registroPonderaciones">Subir Ponderacioens</NuxtLink>  </li>
                         <li class="nav-item"><NuxtLink class="nav-link active" to="/login">Iniciar Sesion</NuxtLink></li>
                         <li class="nav-item"><NuxtLink class="nav-link active" to="/registrocuenta">Registrar Cuenta</NuxtLink></li>
-                       
+                        <li class="nav-item"><NuxtLink class="nav-link active" to="/informe">Informe</NuxtLink></li>
                         <!--  <li class="nav-item dropdown">
 
                       <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Cuenta</a>
