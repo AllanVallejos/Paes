@@ -50,8 +50,6 @@ export default class API {
     static async validarUsuario(data) {
         try {
             const res = await axios.post(url + "verificarusuario", data)
-            console.log("hola")
-            console.log(res.data + "xd")
             return res.data
 
         } catch (error) {

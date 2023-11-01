@@ -11,6 +11,7 @@
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
+    "@sidebase/nuxt-auth": "^0.6.0-rc.1",
     "nuxt": "^3.7.4",
     "vite-plugin-vuetify": "^1.0.2",
     "vue": "^3.3.4",
@@ -19,13 +20,13 @@
   },
   "dependencies": {
     "@mdi/font": "^7.3.67",
+    "@nuxtjs/axios": "^5.13.6",
     "@pinia/nuxt": "^0.5.0",
     "axios": "^1.5.1",
     "bootstrap": "^5.3.2",
     "pinia": "^2.1.7",
     "popper.js": "^1.14.3",
-    "vuejs-logger": "1.5.5",
-    "sweetalert2": "^11.6.13"
-
+    "sweetalert2": "^11.6.13",
+    "vuejs-logger": "1.5.5"
   }
 }

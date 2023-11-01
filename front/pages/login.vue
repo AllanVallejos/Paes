@@ -47,7 +47,7 @@
 <script>
     import Swal from 'sweetalert2'
     import API from '@/api';
-    import { tienda } from "../store/store"
+    import { tienda } from "../store/store";
 
     export default{
         data () {
@@ -61,22 +61,19 @@
     methods: {
         async login() {
             await API.validarUsuario({
-                "email": this.email,
+                "email": this.email.toLowerCase(),
                 "password": this.password
             })
             .then((result) => {
-                console.log(result)
-                if(result.resplogin==true){
+                if(result.resplogin){
                     this.todoTienda.usuario =  result.usuario
-
-                    console.log(this.todoTienda.usuario)
                     Swal.fire({
                         icon: 'success',
                         title: 'Login Valido',
                         text: '',
                     }    
                     )
-                    this.$router.push({ path: "/homeUsuario" }); //redireccion usuario
+                    this.$router.push({ path: "/" }); //redireccion usuario
 
                 }
                 else{
