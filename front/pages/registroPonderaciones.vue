@@ -124,28 +124,31 @@
     };
   },
   methods: {
+    
     publicarPonderacion() {
       Swal.fire({
             icon: 'success',
-            title: 'Ponderación subida con éxito',
+            title: 'Ponderacion subida con éxito',
             text: '',
                         })
-      this.crearPonderacion()
-      this.$router.push({ path: "/registroPonderaciones" });
+      this.crearPregunta()
+      this.$router.push({ path: "/ponderacioness" });
     },
-    async crearPonderacion(){
-      const respuesta= await API.addporcentajePonderacion(
+    async crearPregunta(){
+      const respuesta= await API.addponderacion(
         {
-          "universidad":this.seleccionarUniversidad,
+          "universidad":this.seleccionaruniversidad,
           "carrera": this.seleccionarCarrera,
           "nem": this.nem,
-          "p_ranking":this.ranking,
-          "comp_lectora":this.comprensionLectora,
-          "mat_m1":this.competenciaMatematica1,
-          "mat_m2":this.competenciaMatematica2,
+          "ranking":this.ranking,
+          "comprensionLectora":this.comprensionLectora,
+          "competenciaMatematica1":this.competenciaMatematica1,
+          "competenciaMatematica2":this.competenciaMatematica2,
           "ciencias":this.ciencias,
           "historia":this.historia,
 
+
+          
         }
       )
   
