@@ -104,5 +104,19 @@ router.post('/verificarusuario', async(req, res) => {
   }
 );
 
+router.get('/getEnsayos', async (req, res) => {
+  try {
+    const temas = await temaSchema.find({});
+    // Extraer el atributo 'ensayo' del array dentro de 'usuario' para cada resultado
+    const ensayos = temas.map(tema => tema.usuario.ensayoPendiente);
+
+    res.json(ensayoPendiente); // Envía como respuesta solo los atributos 'ensayo'
+    console.log("Ensayos obtenidos");
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: "Error al obtener los ensayos" });
+  }
+});
+
 
 module.exports = router;

@@ -160,4 +160,17 @@ export default class API {
             return error.response.data
         }
     }
+
+    static async getEnsayos(data){
+        try {
+
+            const res = await axios.get(url+"getEnsayos")
+            return res.data
+
+        } catch (error) {
+
+            return error.response.data
+
+        }
+    }
 }

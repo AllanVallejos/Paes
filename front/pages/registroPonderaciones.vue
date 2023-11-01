@@ -124,12 +124,6 @@
     };
   },
   methods: {
-    agregarAlt() {
-      if (this.alternativas.length < 5) {
-        //Hasta 5 alternativas
-        this.alternativas.push({ text: "" });
-      }
-    },
     publicarPonderacion() {
       Swal.fire({
             icon: 'success',
